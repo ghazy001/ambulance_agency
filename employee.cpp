@@ -48,15 +48,7 @@ QSqlQueryModel* employee::afficher()
 return model;
 
 }
-/*QSqlQueryModel * employee::recherche_employe(QString search)
-{
 
-    QSqlQueryModel * model= new QSqlQueryModel();
-    QString qry="select * from Employe where ID_EMPLOYE like '%"+search+"%' or nom like '%"+search+"%' or prenom like '%"+search+"%'  or ADRESSE_MAIL like '%"+search+"%' ";
-    qDebug()<<qry;
-    model->setQuery(qry);
-    return model;
-}*/
 bool employee::ajouter()
 {
     QSqlQuery query;
@@ -82,4 +74,46 @@ bool employee::supprimer(int id)
     return query.exec();
 }
 
+bool employee::modifier(int id)
+{
+    QSqlQuery query;
+    QString id_string=QString::number(id);
+    QString sal_string=QString::number(salaire);
+
+    query.prepare("update EMPLOYE set ID_EMPLOYE='"+id_string+"', NOM='"+nom+"',PRENOM='"+prenom+"',SALAIRE='"+sal_string+"',   ADRESSE_MAIL='"+mail+"' WHERE ID_EMPLOYE='"+id_string+"'");
+    query.bindValue(":id", id_string);
+    query.bindValue(":forename", nom);
+    query.bindValue(":surname", prenom);
+    query.bindValue(":salaire",sal_string );
+    query.bindValue(":mail", mail);
+
+
+
+          return    query.exec();
+}
+
+QSqlQueryModel * employee::recherche(QString id )  /*cherche un producteur de meme id*/
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+    model->setQuery("SELECT * FROM EMPLOYE WHERE  ID_EMPLOYE LIKE '" + id + "' ");
+
+
+    return model;
+}
+
+
+
+QSqlQueryModel * employee::tri_N_Passeport()
+   {QSqlQueryModel * model= new QSqlQueryModel();
+
+   model->setQuery("select * from EMPLOYE order by ID_EMPLOYE");
+   model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+   model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+   model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+   model->setHeaderData(3, Qt::Horizontal, QObject::tr("salaire"));
+   model->setHeaderData(4, Qt::Horizontal, QObject::tr("mail"));
+
+       return model;
+   }
 
