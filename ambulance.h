@@ -3,7 +3,7 @@
 #include <QString>
 #include <qsqlquery.h>
 #include <QSqlQueryModel>
-
+#include<QtCharts>
 
 class ambulance
 {
@@ -30,6 +30,12 @@ public:
    QSqlQueryModel* afficher();
    bool supprimer(int);
    bool existance(QString id);
+    bool update();
+    QSqlQueryModel* recherche(QString id,QString marque,QString modele,QString etat);
+    QSqlQueryModel*  trier(int test);
+    QChart *statistique_chart();
+
+
 
 
 private:
