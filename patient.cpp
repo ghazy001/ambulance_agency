@@ -15,7 +15,8 @@
 
 #include <QtCore/QDateTime>
 
-
+#include <QString>
+#include <string>
 
 
 #include "patient.h"
@@ -189,43 +190,36 @@ QSqlQueryModel * Patient::tri_N_Passeport()
       }
 
 
-std::string Patient::CaptchaGenerator()
-{
-    m_captcha = generateRandomString(4);
 
+ QString Patient::CaptchaGenerator()
+{
+    std::srand(std::time(nullptr));
+    QString m_captcha = QString::fromStdString(generateRandomString(6));
+
+    return m_captcha;
 }
 
 
 
-
-
-std::string Patient::getCaptcha()
-{
-    return m_captcha ;
-}
-
-
-std::string Patient::generateRandomString(int length)
-{
-    static const std::string alphanum =
-        "0123456789"
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        "abcdefghijklmnopqrstuvwxyz";
-    std::string randomString = "";
-    for (int i = 0; i < length; i++) {
-        int index = rand() % alphanum.length();
-        randomString += alphanum[index];
-    }
-    return randomString;
-}
+ std::string Patient::generateRandomString(int length)
+ {
+     static const std::string alphanum =
+         "0123456789"
+         "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+         "abcdefghijklmnopqrstuvwxyz";
+     std::string randomString = "";
+     for (int i = 0; i < length; i++) {
+         int index = rand() % alphanum.length();
+         randomString += alphanum[index];
+     }
+     return randomString;
+ }
 
 
 
-void Patient::affichecap()
-{
 
-model->setData(model->index(0, 0), valeur_retour);
-}
+
+
 
 
 

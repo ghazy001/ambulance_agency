@@ -31,14 +31,14 @@ public:
     bool supprimer(int);
     bool modifier (int);
 
-    std::string CaptchaGenerator();
+     QString CaptchaGenerator();
 
     QSqlQueryModel* recherche(QString id_patient,QString nom , QString prenom );
 
            QSqlQueryModel * tri_N_Passeport();
 
 
-           std::string getCaptcha();
+           QString getCaptcha();
            bool verify(const std::string& input);
 
 

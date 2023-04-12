@@ -18,12 +18,21 @@
 #include <QStandardItemModel>
 
 
+#include <QtWidgets>
+#include <QtSql>
+
+
 MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
    ui->setupUi(this);
      ui->tabpatient->setModel(E.afficher());
+
+
+      ui->male->setText(E.CaptchaGenerator());
+
+
 
 
    ui->lineEdit_5->setValidator(new QIntValidator(0, 999, this));
@@ -224,10 +233,10 @@ void MainWindow::on_pdf_clicked()
               painter.drawRect(0,3000,9600,500);
               painter.setFont(QFont("Cambria",11));
               painter.drawText(200,3300,"ID_PATIENT");
-              painter.drawText(1300,3300,"NOM");
-              painter.drawText(2700,3300,"PRENOM");
-              painter.drawText(4000,3300,"ADRESSE");
-              painter.drawText(5000,3300,"NUMERO_TELEPHONE");
+              painter.drawText(1500,3300,"NOM");
+              painter.drawText(2800,3300,"PRENOM");
+              painter.drawText(4100,3300,"ADRESSE");
+              painter.drawText(5400,3300,"NUMERO_TELEPHONE");
               painter.drawText(7500,3300,"MAIL_PATIENT");
 
 
@@ -237,12 +246,12 @@ void MainWindow::on_pdf_clicked()
               while (query.next())
               {
                   painter.drawText(200,i,query.value(0).toString());
-                  painter.drawText(1300,i,query.value(1).toString());
-                  painter.drawText(2700,i,query.value(2).toString());
-                  painter.drawText(4000,i,query.value(3).toString());
+                  painter.drawText(1500,i,query.value(1).toString());
+                  painter.drawText(2800,i,query.value(2).toString());
+                  painter.drawText(4100,i,query.value(3).toString());
 
-                  painter.drawText(5000,i,query.value(4).toString());
-                  painter.drawText(6500,i,query.value(5).toString());
+                  painter.drawText(5400,i,query.value(4).toString());
+                  painter.drawText(7500,i,query.value(5).toString());
 
                   i = i + 500;
               }
@@ -258,5 +267,90 @@ void MainWindow::on_pdf_clicked()
 
 
 
+
+
+
+void MainWindow::on_excel_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export excel", QString(), "*.excel");
+              if (QFileInfo(fileName).suffix().isEmpty())
+              {
+                  fileName.append(".excel");
+              }
+               QTextDocument doc;
+               QPrinter printer(QPrinter::PrinterResolution);
+               printer.setOutputFormat(QPrinter::PdfFormat);
+               printer.setPaperSize(QPrinter::A4);
+               printer.setOutputFileName(fileName);
+               QPdfWriter pdf(fileName);
+               QPainter painter(&pdf);
+                painter.setFont(QFont("Cambria", 30));
+
+
+              QSqlQuery query("SELECT * FROM patient");
+                     QStringList header;
+                     QList<QStringList> donnees;
+                     while (query.next()) {
+                         QStringList ligne;
+                         ligne << query.value(0).toString();
+                         ligne << query.value(1).toString();
+                         ligne << query.value(2).toString();
+                         donnees.append(ligne);
+                     }
+                     header << "Colonne 1" << "Colonne 2" << "Colonne 3";
+
+                     // Écriture des données dans un fichier Excel
+                     QFile file("donnees.xls");
+                     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+                         QMessageBox::critical(this, "Erreur", "Impossible d'ouvrir le fichier !");
+                         return;
+                     }
+
+                     QTextStream out(&file);
+                     // Écrire les en-têtes
+                     for (int i = 0; i < header.size(); i++) {
+                         out << header.at(i) << "\t";
+                     }
+                     out << "\n";
+                     // Écrire les données
+                     foreach (const QStringList &ligne, donnees) {
+                         for (int i = 0; i < ligne.size(); i++) {
+                             out << ligne.at(i) << "\t";
+                         }
+                         out << "\n";
+                     }
+
+                     // Fermeture du fichier
+                     file.close();
+
+                     // Affichage d'un message de confirmation
+                     QMessageBox::information(this, "Exportation réussie", "Les données ont été exportées vers le fichier Excel.");
+
+doc.print(&printer);
+             }
+
+
+
+
+
+
+
+void MainWindow::on_malek12_clicked()
+{
+
+
+
+       if (ui->stela->text() == ui->male->text())
+
+                {
+                   QMessageBox::information(this, "CAPTCHA Verification", "CAPTCHA verified");
+                }
+       else
+                {
+                   QMessageBox::warning(this, "CAPTCHA Verification", "CAPTCHA verification failed");
+                }
+              ui->stela->clear();
+
+};
 
 
