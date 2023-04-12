@@ -2,19 +2,23 @@
 #define EQUIPEMENT_H
 #include <QString>
 #include <QSqlQueryModel>
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+#include <QGridLayout>
+#include <QtCharts>
+#include <QChartView>
 
 class equipement
 {public:
     equipement();
-        equipement (int,int,QString,int,QString);
+        equipement (int,QString,int,QString);
         int getid_equipement();
-        int getcode_QR();
         QString getreference();
         int getprix();
         QString getnom_equipement();
 
         void setid_equipement(int);
-        void setcode_QR(int);
         void setreference(QString);
         void setprix(int);
         void setnom_equipement(QString);
@@ -23,12 +27,19 @@ class equipement
 
         bool ajouter();
         bool supprimer(int id);
+        bool modifier();
 
+       QSqlQueryModel* recherche(QString id);
+       QSqlQueryModel * tri_N_Passeport();
+       void notifcation();
+       QSqlQueryModel* rechercher(QString a);
+       QSqlQueryModel * trier(int test);
+       QChart *statistique_chart();
 
 
 
 private:
-    int id_equipement,code_QR;
+    int id_equipement;
     QString reference, nom_equipement;
     int prix;
 
