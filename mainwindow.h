@@ -23,7 +23,7 @@ private slots:
 
     void on_supprimer_e_clicked();
 
-
+void updateChart() ;
 
     void on_UPDATE_clicked();
 

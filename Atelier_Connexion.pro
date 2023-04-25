@@ -4,7 +4,11 @@
 #
 #-------------------------------------------------
 
-QT       +=  sql
+QT       +=  sql charts printsupport network
+QT += network
+
+INCLUDEPATH += C:\Program Files\OpenSSL-Win64\include
+LIBS += -LC:\Users\zeddi\OneDrive\Bureau\final\aa -lssleay32 -llibeay32
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,18 +29,28 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    authentification.cpp \
     employee.cpp \
+    login.cpp \
         main.cpp \
         mainwindow.cpp \
-    connection.cpp
+    connection.cpp \
+    register.cpp \
+    smtp.cpp
 
 HEADERS += \
+    authentification.h \
     employee.h \
+    login.h \
         mainwindow.h \
-    connection.h
+    connection.h \
+    register.h \
+    smtp.h
 
 FORMS += \
-        mainwindow.ui
+        login.ui \
+        mainwindow.ui \
+        register.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -45,3 +59,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     logo.qrc
+
+
