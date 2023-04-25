@@ -107,6 +107,7 @@ QSqlQueryModel * ambulance::afficher(){
 
 
           model->setQuery("SELECT * FROM AMBULANCE");
+
       /*    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Matricule"));
           model->setHeaderData(1, Qt::Horizontal, QObject::tr("Marque"));
           model->setHeaderData(2, Qt::Horizontal, QObject::tr("Modele"));
@@ -143,7 +144,7 @@ bool ambulance::existance(QString id)
     return 0;
 }
 
-QSqlQueryModel * ambulance::recherche(QString id ,QString marque,QString modele,QString etat)  /*cherche un producteur de meme id*/
+QSqlQueryModel * ambulance::recherche(QString id ,QString marque,QString modele,QString etat)
 {
     QSqlQueryModel * model= new QSqlQueryModel();
 
@@ -298,23 +299,22 @@ QChart *ambulance::statistique_chart()
         series->slices().at(1)->setColor(QColor("#FF5733"));
         series->slices().at(2)->setColor(QColor("#C70039"));
         series->slices().at(3)->setColor(QColor("#900C3F"));
+        series->slices().at(4)->setColor(QColor("#0BD7DA"));
+        series->slices().at(5)->setColor(QColor("#0BDA5D"));
+
         //$$$$$$$$$$$
         chart->setTitleFont(QFont("Arial", 17, QFont::Bold));
 
 
+
+
+
+
+
+
         return chart;
 
-
-
-
-
-
-
-
     }
-
-
-
 
 
 

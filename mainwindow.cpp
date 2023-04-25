@@ -29,6 +29,15 @@
 #include <QtCharts>
 #include <QChartView>
 #include <QStackedWidget>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QFileDialog>
+#include <QDir>
+
+
+
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -43,11 +52,57 @@ chart=A.statistique_chart();
 QChartView * Cview=new QChartView(chart,ui->STAT);
 Cview->resize(650,330);
 Cview->setRenderHint(QPainter::Antialiasing);
+
+
+
+
+// mp3
+m_playListModel = new QStandardItemModel(this);
+   ui->playlistView->setModel(m_playListModel);
+   m_playListModel->setHorizontalHeaderLabels(QStringList()  << tr("Audio Track")
+                                                           << tr("File Path"));
+   ui->playlistView->hideColumn(1);
+   ui->playlistView->verticalHeader()->setVisible(false);
+   ui->playlistView->setSelectionBehavior(QAbstractItemView::SelectRows);
+   ui->playlistView->setSelectionMode(QAbstractItemView::SingleSelection);
+   ui->playlistView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+   ui->playlistView->horizontalHeader()->setStretchLastSection(true);
+
+   m_player = new QMediaPlayer(this);          // Init player
+   m_playlist = new QMediaPlaylist(m_player);  // Init playlist
+   m_player->setPlaylist(m_playlist);
+   m_player->setVolume(70);
+   m_playlist->setPlaybackMode(QMediaPlaylist::Loop);  // Set circular play mode playlist
+
+
+   // Here we note that the navigation is done through the playlist playlist
+   // and start / pause / stop via the player itself
+   connect(ui->btn_previous, &QToolButton::clicked, m_playlist, &QMediaPlaylist::previous);
+   connect(ui->btn_next, &QToolButton::clicked, m_playlist, &QMediaPlaylist::next);
+   connect(ui->btn_play, &QToolButton::clicked, m_player, &QMediaPlayer::play);
+   connect(ui->btn_pause, &QToolButton::clicked, m_player, &QMediaPlayer::pause);
+   connect(ui->btn_stop, &QToolButton::clicked, m_player, &QMediaPlayer::stop);
+
+   // When you doubleclick on the track in the table set the track in the playlist
+   connect(ui->playlistView, &QTableView::doubleClicked, [this](const QModelIndex &index){
+       m_playlist->setCurrentIndex(index.row());
+   });
+
+   // if the current track of the index change in the playlist, set the file name in a special label
+   connect(m_playlist, &QMediaPlaylist::currentIndexChanged, [this](int index){
+       ui->currentTrack->setText(m_playListModel->data(m_playListModel->index(index, 0)).toString());
+   });
+
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+
+        delete m_playListModel;
+        delete m_playlist;
+        delete m_player;
 }
 
 
@@ -96,10 +151,14 @@ else {
 }
 }
 
+
+
 void MainWindow::on_pushButton_clicked()
 {
     QDesktopServices::openUrl(QUrl("https://wa.me/+21626864405",QUrl::TolerantMode));
 }
+
+
 
 
 
@@ -140,6 +199,9 @@ void MainWindow::on_pushButton_2_clicked()
               msgBox.exec();
     }
     }
+
+
+
 
 
 bool MainWindow::postrequest(QString smsmsg,QString phonenumber)
@@ -234,6 +296,9 @@ void MainWindow::on_tab_ambulance_clicked(const QModelIndex &index)
 }
 
 
+
+
+// trier
 void MainWindow::on_comboBox_activated(const QString &arg1)
 {
     if (arg1=="matricule")
@@ -244,6 +309,7 @@ void MainWindow::on_comboBox_activated(const QString &arg1)
         ui->tab_ambulance->setModel(A.trier(3));
 }
 
+//pdf
 void MainWindow::on_pushButton_3_clicked()
 {
 
@@ -314,6 +380,10 @@ void MainWindow::on_pushButton_3_clicked()
 
 }
 
+
+
+
+//sms
 void MainWindow::on_pushButton_4_clicked()
 
 {
@@ -324,11 +394,142 @@ void MainWindow::on_pushButton_4_clicked()
      msgBox.exec();
 }
 
+
+
+//rechercher
 void MainWindow::on_chercher_textEdited(const QString &arg1)
 {
     QString a=ui->chercher->text();
 
     ui->tab_ambulance->setModel(A.recherche(arg1,arg1,arg1,arg1));
 
+}
+
+
+
+
+
+//clandrier
+void MainWindow::on_calendarWidget_clicked(const QDate &date)
+{
+
+
+
+
+        QString dateString=date.toString();
+        QString query = QString("SELECT note FROM calendrier WHERE dateC ='%1'")
+                                .arg(dateString);
+
+        QSqlQuery sqlQuery;
+        sqlQuery.prepare(query);
+        if (sqlQuery.exec()) {
+            if (sqlQuery.next()) {
+                ui->note->setText(sqlQuery.value(0).toString());
+                ui->calendarWidget->setDateTextFormat(date, QTextCharFormat());
+                QTextCharFormat format;
+                format.setForeground(Qt::blue); // set the foreground color to red
+                format.setFontWeight(QFont::Bold); // set the font weight to bold
+                format.setFontPointSize(12); // set the font size to 12
+
+
+                ui->calendarWidget->setDateTextFormat(date, format); // set the text format for the date
+            }
+            else {
+                ui->note->setText("");
+                ui->calendarWidget->setDateTextFormat(date, QTextCharFormat()); // remove any existing text format for the date
+            }
+        } else {
+            qDebug() << "Error executing SQL query: " << sqlQuery.lastError().text();
+        }
+        qDebug() << "Selected Date: " << dateString;
+
+
+
+
+
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+
+    QString noteText = ui->note->toPlainText();
+        QDate selectedDate = ui->calendarWidget->selectedDate();
+        QString dateString = selectedDate.toString();
+
+        QSqlQuery query;
+
+        query.prepare("INSERT INTO CALENDRIER (DATEC, NOTE) "
+                      "VALUES (:date, :note)");
+        query.bindValue(":date", dateString);
+        query.bindValue(":note", noteText);
+
+          //qDebug() << "Selected Date: button" << dateString;
+        query.exec();
+
+
+
+
+
+}
+
+void MainWindow::on_updateNote_clicked()
+{
+
+        QString noteText = ui->note->toPlainText();
+        QDate selectedDate = ui->calendarWidget->selectedDate();
+        QString dateString = selectedDate.toString();
+
+        QSqlQuery query;
+        query.prepare("UPDATE calendrier SET note = :note WHERE dateC = :date");
+        query.bindValue(":note", noteText);
+        query.bindValue(":date", dateString);
+        if (query.exec()) {
+            QMessageBox::information(this, "Note Updated", "Note updated for " + dateString);
+        } else {
+            QMessageBox::critical(this, "Error", "Failed to update note: " + query.lastError().text());
+        }
+
+}
+
+void MainWindow::on_deleteNote_clicked()
+{
+
+        QDate selectedDate = ui->calendarWidget->selectedDate();
+        QString dateString = selectedDate.toString();
+
+        QSqlQuery query;
+        query.prepare("DELETE FROM calendrier WHERE dateC = :date");
+        query.bindValue(":date", dateString);
+        if (query.exec()) {
+            QMessageBox::information(this, "Note Deleted", "Note deleted for " + dateString);
+            ui->note->setText("");
+        } else {
+            QMessageBox::critical(this, "Error", "Failed to delete note: " + query.lastError().text());
+        }
+
+
+}
+
+
+
+//media player
+
+void MainWindow::on_btn_add_clicked()
+{
+    // Using the file selection dialog to make multiple selections of mp3 files
+        QStringList files = QFileDialog::getOpenFileNames(this,
+                                                          tr("Open files"),
+                                                          QString(),
+                                                          tr("Audio Files (*.mp3)"));
+
+        // Next, set the data names and file paths
+        // into the playlist and table displaying the playlist
+        foreach (QString filePath, files) {
+            QList<QStandardItem *> items;
+            items.append(new QStandardItem(QDir(filePath).dirName()));
+            items.append(new QStandardItem(filePath));
+            m_playListModel->appendRow(items);
+            m_playlist->addMedia(QUrl(filePath));
+}
 }
 

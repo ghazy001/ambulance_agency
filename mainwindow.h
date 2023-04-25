@@ -3,6 +3,10 @@
 #include "ambulance.h"
 
 #include <QMainWindow>
+#include <QWidget>
+#include <QStandardItemModel>
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -41,9 +45,26 @@ private slots:
 
 
 
+
+
+    void on_calendarWidget_clicked(const QDate &date);
+
+    void on_pushButton_5_clicked();
+
+    void on_updateNote_clicked();
+
+    void on_deleteNote_clicked();
+
+    void on_btn_add_clicked();
+
+
+
 private:
     Ui::MainWindow *ui;
     ambulance A;
-    QString apikey="JUAkmCxtVs9zL422RVDQY6sHahL3";
+    QString apikey="PfQGOhn3oe6WXawwZWA2CWgobAGg";
+    QStandardItemModel  *m_playListModel;   // Data Model for Playlist
+       QMediaPlayer        *m_player;
+       QMediaPlaylist      *m_playlist;
 };
 #endif // MAINWINDOW_H

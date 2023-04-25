@@ -34,6 +34,7 @@ public:
     QSqlQueryModel* recherche(QString id,QString marque,QString modele,QString etat);
     QSqlQueryModel*  trier(int test);
     QChart *statistique_chart();
+    void refreshChart();
 
 
 
