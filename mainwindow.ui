@@ -40,7 +40,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -510,6 +510,11 @@ border-radius : 10px ;
       <item>
        <property name="text">
         <string>reference</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>nom_equipement</string>
        </property>
       </item>
      </widget>

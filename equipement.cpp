@@ -104,6 +104,10 @@ QSqlQueryModel * equipement::trier(int test)
     {
         query.prepare("SELECT *  FROM EQUIPEMENT ORDER BY PRIX  ") ;
     }
+    else if(test==4)
+    {
+        query.prepare("SELECT *  FROM EQUIPEMENT ORDER BY NOM_EQUIPEMENT  ") ;
+    }
 
     if (query.exec()&&query.next())
     {

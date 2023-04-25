@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new/prefix7">
+        <file>AAAA.png</file>
+        <file>../../../Downloads/logo (1).png</file>
+    </qresource>
+</RCC>

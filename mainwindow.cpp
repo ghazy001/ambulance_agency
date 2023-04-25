@@ -340,6 +340,7 @@ void MainWindow::on_ajouter_e_clicked()
                      "Click Cancel to exit."), QMessageBox::Cancel);
 
 */
+
 on_pushButton_success_clicked();
 
 
@@ -544,7 +545,7 @@ void MainWindow::on_qrcodegen_3_clicked()
                 QRgb white = qRgb(255, 255, 255);
                 for (int y = 0; y < sz; y++) {
                     for (int x = 0; x < sz; x++) {
-                        im.setPixel(x, y, qr.getModule(x, y) ? black : white); //setpixelmap tafichilek qr code
+                        im.setPixel(x, y, qr.getModule(x, y) ? black : white);
                     }
                 }
                 ui->qrcodecommande_3->setPixmap(QPixmap::fromImage(im.scaled(200, 200, Qt::KeepAspectRatio, Qt::FastTransformation), Qt::MonoOnly));
@@ -564,6 +565,8 @@ void MainWindow::on_comboBox_activated(const QString &arg1)
             ui->tab_equipement->setModel(eq.trier(2));
         if (arg1=="prix")
             ui->tab_equipement->setModel(eq.trier(3));
+        if (arg1=="nom_equipement")
+            ui->tab_equipement->setModel(eq.trier(4));
 }
 
 void MainWindow::on_pushButton_3_clicked()
