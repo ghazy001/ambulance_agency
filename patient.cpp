@@ -24,8 +24,10 @@
 #include <cstdlib>
 #include <ctime>
 
+#include <QtWidgets>
 
 
+#include <ActiveQt/QAxObject>
 
 Patient::Patient(){
 id_patient=0;
@@ -161,7 +163,7 @@ bool Patient::supprimer(int id_patient)
 
 
 
-QSqlQueryModel * Patient::recherche(QString id_patient,QString nom , QString prenom   )  /*cherche un producteur de meme id*/
+QSqlQueryModel * Patient::recherche(QString id_patient,QString nom , QString prenom   )
 {
     QSqlQueryModel * model= new QSqlQueryModel();
 
@@ -219,9 +221,181 @@ QSqlQueryModel * Patient::tri_N_Passeport()
 
 
 
+ QChart *Patient::statistique_chart()
+ {
+
+     QSqlQuery query0,query1,query2,query3,query4;
+
+         qreal c1_1=0,c1_2=0,c1_3=0,c1_4=0;
+
+         int totale=0;
+
+         query0.prepare("SELECT * FROM PATIENT");
+         query0.exec();
+
+         query1.prepare("SELECT * FROM PATIENT WHERE ADRESSE ='TUNIS'");
+         query1.exec();
+
+         query2.prepare("SELECT * FROM PATIENT WHERE ADRESSE='SOUSSE'");
+         query2.exec();
+
+         query3.prepare("SELECT * FROM PATIENT WHERE ADRESSE='JERBA'");
+         query3.exec();
+
+         query4.prepare("SELECT * FROM PATIENT WHERE ADRESSE='NEBEL'");
+         query4.exec();
+
+
+
+
+
+         while (query0.next()){totale++;}
+
+         while (query1.next()){c1_1++;}
+         while (query2.next()){c1_2++;}
+         while (query3.next()){c1_3++;}
+         while (query4.next()){c1_4++;}
+
+        totale=totale/2;
+
+         QBarSet *set0 = new QBarSet("ADRESSE:TUNIS");
+         QBarSet *set1 = new QBarSet("ADRESSE:SOUSSE");
+         QBarSet *set2 = new QBarSet("ADRESSE:JERBA");
+         QBarSet *set3 = new QBarSet("ADRESSE:NEBEL");
+
+         *set0 << c1_1;
+         *set1 << c1_2;
+         *set2 << c1_3;
+         *set3 << c1_4;
+
+         QBarSeries *series = new QBarSeries();
+         series->append(set0);
+         series->append(set1);
+         series->append(set2);
+         series->append(set3);
+
+         QChart *chart = new QChart();
+         chart->addSeries(series);
+         chart->setTitle("Statistique des patients ");
+         chart->setAnimationOptions(QChart::AllAnimations);
+         chart->setTheme(QChart::ChartThemeBlueCerulean);
+
+         QStringList MODELEs = { /*"TUNIS", "SOUSSE","JERBA", "NEBEL"*/};
+         QBarCategoryAxis *axisX = new QBarCategoryAxis();
+         axisX->append(MODELEs);
+         chart->addAxis(axisX, Qt::AlignBottom);
+         series->attachAxis(axisX);
+
+         QValueAxis *axisY = new QValueAxis();
+         axisY->setRange(0,totale);
+         chart->addAxis(axisY, Qt::AlignLeft);
+         series->attachAxis(axisY);
+
+         QPalette pal = qApp->palette();
+         pal.setColor(QPalette::Window, QRgb(0xffffff));
+         pal.setColor(QPalette::WindowText, QRgb(0x404044));
+         qApp->setPalette(pal);
+
+         return chart;
+ }
+
+
+ QSqlQueryModel * Patient::trier(int test)
+ {
+
+     QSqlQueryModel *model=new QSqlQueryModel() ;
+     QSqlQuery query ;
+
+     if(test==1)
+     {
+         query.prepare("SELECT *  FROM PATIENT ORDER BY ID_PATIENT  ") ;
+     }
+     else if(test==2)
+     {
+         query.prepare("SELECT *  FROM PATIENT ORDER BY NOM  ") ;
+     }
+     else if(test==3)
+     {
+         query.prepare("SELECT *  FROM PATIENT ORDER BY PRENOM  ") ;
+     }
+
+     if (query.exec()&&query.next())
+     {
+         model->setQuery(query) ;
+     }
+         return model;
+
+     }
 
 
 
 
 
 
+ void Patient::generer()
+ {
+
+ try{
+
+
+     QAxObject* excel = new QAxObject("Excel.Application");
+
+     excel->setProperty("Visible", true);
+
+     QAxObject* workbook = excel->querySubObject("Workbooks")->querySubObject("Add");
+
+     QAxObject* worksheet = workbook->querySubObject("Worksheets(int)", 1);
+
+     worksheet->querySubObject("Cells(int,int)", 1, 1)->setProperty("Value", "ID_PATIENT");
+     worksheet->querySubObject("Cells(int,int)", 1, 2)->setProperty("Value", "NOM");
+     worksheet->querySubObject("Cells(int,int)", 1, 3)->setProperty("Value", "PRENOM");
+     worksheet->querySubObject("Cells(int,int)", 1, 4)->setProperty("Value", "ADRESSE");
+     worksheet->querySubObject("Cells(int,int)", 1, 5)->setProperty("Value", "NUMERO_TELEPHONE");
+     worksheet->querySubObject("Cells(int,int)", 1, 6)->setProperty("Value", "MAIL_PATIENT");
+
+
+     QSqlQuery qry;
+     qry.prepare("SELECT * FROM PATIENT "  );
+     if (qry.exec()) {
+
+         int row = 2;
+         while (qry.next()) {
+         worksheet->querySubObject("Cells(int,int)", row, 1)->setProperty("Value", qry.value(0).toString());
+         worksheet->querySubObject("Cells(int,int)", row, 2)->setProperty("Value", qry.value(1).toString());
+         worksheet->querySubObject("Cells(int,int)", row, 3)->setProperty("Value", qry.value(2).toString());
+         worksheet->querySubObject("Cells(int,int)", row, 4)->setProperty("Value", qry.value(3).toString());
+         worksheet->querySubObject("Cells(int,int)", row, 5)->setProperty("Value", qry.value(4).toString());
+         worksheet->querySubObject("Cells(int,int)", row, 6)->setProperty("Value", qry.value(5).toString());
+         worksheet->querySubObject("Cells(int,int)", row, 7)->setProperty("Value", qry.value(6).toString());
+         worksheet->querySubObject("Cells(int,int)", row, 8)->setProperty("Value", qry.value(7).toString());
+         row++;
+         }
+
+
+         QAxObject* usedRange = worksheet->querySubObject("UsedRange");
+         QAxObject* columns = usedRange->querySubObject("Columns");
+
+         columns->dynamicCall("AutoFit");
+
+
+         QString filePath = "C:/Users/youssef/Desktop/Benif.xlsx";
+         QVariant result = workbook->dynamicCall("SaveAs(const QString&)", filePath);
+         if (result.isNull()) {
+
+             QString errorMessage = "Error: " + workbook->property("LastError").toString();
+
+         }
+
+
+         workbook->dynamicCall("Close()");
+         excel->dynamicCall("Quit()");
+     }
+
+ }catch (const std::exception& e) {
+
+         QString errorMessage = "Error: " + QString(e.what());
+         QMessageBox::critical(nullptr, "Error", errorMessage);
+         }
+
+
+ }

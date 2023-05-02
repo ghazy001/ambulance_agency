@@ -4,7 +4,12 @@
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
-
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+#include <QGridLayout>
+#include <QtCharts>
+#include <QChartView>
 #include <string>
 
 class Patient
@@ -41,6 +46,16 @@ public:
            QString getCaptcha();
            bool verify(const std::string& input);
 
+
+QString executeFunction() ;
+
+
+QChart * statistique_chart();
+
+
+QSqlQueryModel * trier(int test);
+
+void generer();
 
 
 private:
