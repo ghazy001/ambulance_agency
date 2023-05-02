@@ -1,27 +1,271 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include "ambulance.h"
-#include <QValidator>
-#include <QIntValidator>
+#include "equipement.h"
 #include <QMessageBox>
-#include <QDesktopServices>
-#include <QUrl>
-#include <QDebug>
 #include <QIntValidator>
-#include<QtPrintSupport/QPrinter>
-#include<QPainter>
-#include<QTextDocument>
-#include <QPdfWriter>
-#include <QDesktopServices>
-#include <QFileDialog>
-#include <QtNetwork/QNetworkAccessManager>
-#include <QtNetwork/QNetworkRequest>
-#include <QtNetwork/QNetworkReply>
-#include <QInputDialog>
-#include <QJsonDocument>
-#include <QJsonObject>
+#include <QSqlQueryModel>
+#include <QTextStream>
+#include <QTextDocument>
+#include <QDataStream>
+#include <QSqlQuery>
 #include <QPixmap>
 #include<QImage>
+#include <QSystemTrayIcon>
+#include <QSystemTrayIcon>
+
+#include <QPixmap>
+#include<QImage>
+
+#include "ui_mainwindow.h"
+#include <QMessageBox>
+#include "connection.h"
+#include <QDate>
+#include <QString>
+#include <QIntValidator>
+#include <QLineEdit>
+#include <QRegExpValidator>
+#include <QSystemTrayIcon>
+
+
+#include <QMessageBox>
+#include "connection.h"
+#include <QDate>
+#include <QString>
+#include <QIntValidator>
+#include <QLineEdit>
+#include <QRegExpValidator>
+#include <QSystemTrayIcon>
+
+#include<QPdfWriter>
+#include<QPainter>
+#include<QPixmap>
+#include<QPrinter>
+#include<QTextStream>
+#include<QTextDocument>
+#include<QFileDialog>
+#include<QGraphicsView>
+#include<QPdfWriter>
+#include<QSqlQuery>
+#include<QSystemTrayIcon>
+#include <QtNetwork/QAbstractSocket>
+#include <QtNetwork/QSslSocket>
+#include<QUrlQuery>
+#include<QJsonDocument>
+#include<QJsonObject>
+#include<QJsonArray>
+
+
+
+
+#include <QMessageBox>
+#include<QIntValidator>
+#include <QApplication>
+#include<QSound>
+#include<QDebug>
+#include<QMediaPlayer>
+#include <QPrinter>
+#include <QTextStream>
+#include <QTextDocument>
+#include <QDataStream>
+#include <QPrintDialog>
+#include <QSqlQuery>
+#include<QComboBox>
+#include<QSaveFile>
+#include<QBuffer>
+#include<QFileDialog>
+#include<QFile>
+#include <QMessageBox>
+#include <QDebug>
+#include <QIntValidator>
+#include <QSqlQueryModel>
+#include <QtCharts>
+#include <QChartView>
+#include <QLineSeries>
+#include<QDesktopServices>
+#include<QUrl>
+#include <QTextStream>
+#include <QTextDocument>
+#include <QtPrintSupport/QPrintDialog>
+#include <QtPrintSupport/QPrinter>
+#include <QtWidgets>
+#include<QFileDialog>
+
+#include<QGraphicsView>
+#include<QPdfWriter>
+#include<QSqlQuery>
+#include<QSystemTrayIcon>
+#include <QtNetwork/QAbstractSocket>
+#include <QtNetwork/QSslSocket>
+#include<QUrlQuery>
+#include<QJsonDocument>
+#include<QJsonObject>
+#include<QJsonArray>
+#include <QDate>
+#include <QTime>
+#include<QSqlTableModel>
+#include<QItemSelectionModel>
+#include<QTableWidgetItem>
+#include <QDesktopWidget>
+#include <QCoreApplication>
+#include <QDateEdit>
+#include <QComboBox>
+#include <QPixmap>
+#include <QMediaPlayer>
+#include <QTabWidget>
+#include <QObject>
+#include <QDialog>
+#include <QValidator>
+#include <QPropertyAnimation>
+#include <QEasingCurve>
+#include <QSequentialAnimationGroup>
+#include <QState>
+#include <QStateMachine>
+#include <QSignalTransition>
+#include <QPainter>
+#include<QString>
+#include<QStatusBar>
+#include <QMovie>
+
+#include<QLabel>
+#include"QMessageBox"
+#include <QPdfWriter>
+#include <QtGui/QDesktopServices>
+#include <QUrl>
+#include <QIntValidator>
+#include <QMessageBox>
+#include <QSqlQuery>
+#include <QPrinter>
+#include <QPrintDialog>
+#include <QtSvg/QSvgRenderer>
+#include <QFileDialog>
+#include <fstream>
+#include "QrCode.hpp"
+#include <QAxObject>
+#include <QObject>
+#include <QDesktopServices>
+#include"QrCode.hpp"
+
+#include <QIntValidator>
+#include <QTableView>
+#include <QMessageBox>
+#include <QPixmap>
+#include<QPrinter>
+#include<QPainter>
+#include<QPrintDialog>
+#include <QPrintPreviewDialog>
+#include <QPdfWriter>
+#include <QtCharts>
+#include <QDesktopServices>
+#include <QtCharts/QAreaSeries>
+#include <QtCharts/QChartView>
+#include <QtCharts/QLineSeries>
+#include <QPieSlice>
+#include <QPieSeries>
+#include <QChartView>
+
+#include <QPrintDialog>
+#include <QFileDialog>
+
+
+
+
+#include <QMessageBox>
+#include "connection.h"
+#include <QDate>
+#include <QString>
+#include <QIntValidator>
+#include <QLineEdit>
+#include <QRegExpValidator>
+#include <QSystemTrayIcon>
+
+#include<QPdfWriter>
+#include<QPainter>
+#include<QPixmap>
+#include<QPrinter>
+#include<QTextStream>
+#include<QTextDocument>
+#include<QFileDialog>
+#include<QGraphicsView>
+#include<QPdfWriter>
+#include<QSqlQuery>
+#include<QSystemTrayIcon>
+#include <QtNetwork/QAbstractSocket>
+#include <QtNetwork/QSslSocket>
+#include<QUrlQuery>
+#include<QJsonDocument>
+#include<QJsonObject>
+#include<QJsonArray>
+
+
+
+
+#include <QMessageBox>
+#include<QIntValidator>
+#include <QApplication>
+#include<QSound>
+#include<QDebug>
+#include<QMediaPlayer>
+#include <QPrinter>
+#include <QTextStream>
+#include <QTextDocument>
+#include <QDataStream>
+#include <QPrintDialog>
+#include <QSqlQuery>
+#include<QComboBox>
+#include<QSaveFile>
+#include<QBuffer>
+#include<QFileDialog>
+#include<QFile>
+#include <QMessageBox>
+#include <QDebug>
+#include <QIntValidator>
+#include <QSqlQueryModel>
+#include <QtCharts>
+#include <QChartView>
+#include <QLineSeries>
+#include<QDesktopServices>
+#include<QUrl>
+#include <QTextStream>
+#include <QTextDocument>
+#include <QtPrintSupport/QPrintDialog>
+#include <QtPrintSupport/QPrinter>
+#include <QtWidgets>
+#include<QFileDialog>
+
+#include<QGraphicsView>
+#include<QPdfWriter>
+#include<QSqlQuery>
+#include<QSystemTrayIcon>
+#include <QtNetwork/QAbstractSocket>
+#include <QtNetwork/QSslSocket>
+#include<QUrlQuery>
+#include<QJsonDocument>
+#include<QJsonObject>
+#include<QJsonArray>
+#include <QDate>
+#include <QTime>
+#include<QSqlTableModel>
+#include<QItemSelectionModel>
+#include<QTableWidgetItem>
+#include <QDesktopWidget>
+#include <QCoreApplication>
+#include <QDateEdit>
+#include <QComboBox>
+#include <QPixmap>
+#include <QMediaPlayer>
+#include <QTabWidget>
+#include <QObject>
+#include <QDialog>
+#include <QValidator>
+#include <QPropertyAnimation>
+#include <QEasingCurve>
+#include <QSequentialAnimationGroup>
+#include <QState>
+#include <QStateMachine>
+#include <QSignalTransition>
+#include <QPainter>
+#include<QString>
+#include<QStatusBar>
+
 #include <QtCharts/QChartView>
 #include <QtCharts/QPieSeries>
 #include <QtCharts/QPieSlice>
@@ -29,507 +273,469 @@
 #include <QtCharts>
 #include <QChartView>
 #include <QStackedWidget>
-#include <QSqlQuery>
-#include <QSqlError>
-#include <QFileDialog>
-#include <QDir>
+
+using qrcodegen::QrCode;
+using qrcodegen::QrSegment;
 
 
+using namespace qrcodegen;
 
 
+#include "Result.h"
+#include "Operation.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+
+#include <QToolTip>
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-   ui->matricule1->setValidator(new QIntValidator(0,999999,this));
-   ui->km->setValidator(new QIntValidator(0,999999,this));
-   //ui->matricule_supp->setValidator(new QIntValidator(0,999999,this));
-   ui->tab_ambulance->setModel(A.afficher());
-QChart *chart=new QChart();
-chart=A.statistique_chart();
-QChartView * Cview=new QChartView(chart,ui->STAT);
-Cview->resize(650,330);
-Cview->setRenderHint(QPainter::Antialiasing);
+    ui->tab_equipement->setModel(eq.afficher());
+    ui->id_e->setValidator(new QIntValidator(0, 9999999, this));
+    ui->prix_e->setValidator(new QIntValidator(0, 10000, this));
+    ui->id_e_2->setValidator(new QIntValidator(0, 9999999, this));
+    ui->prix_e_2->setValidator(new QIntValidator(0, 10000, this));
+    QRegExp
+    regExp("^[A-Za-z]*$");
+    ui->nom_e->setValidator(new QRegExpValidator(regExp, this));
+    ui->nom_e_2->setValidator(new QRegExpValidator(regExp, this));
 
 
+    QChart *chart=new QChart();
+    chart =eq.statistique_chart();
+    QChartView * ChartView=new QChartView(chart,ui->stats);
+    ChartView->resize(420,360);
+    ChartView->setRenderHint(QPainter::Antialiasing);
+    // ***arduino***
+                 int ret=A.connect_arduino(); // lancer la connexion à arduino
+                            switch(ret){
+                            case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+                                break;
+                            case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+                               break;
+                            case(-1):qDebug() << "arduino is not available";
+                            }
+                             QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(on_update_clicked())); // permet de lancer
+                             //le slot update_label suite à la reception du signal readyRead (reception des données).
 
 
-// mp3
-m_playListModel = new QStandardItemModel(this);
-   ui->playlistView->setModel(m_playListModel);
-   m_playListModel->setHorizontalHeaderLabels(QStringList()  << tr("Audio Track")
-                                                           << tr("File Path"));
-   ui->playlistView->hideColumn(1);
-   ui->playlistView->verticalHeader()->setVisible(false);
-   ui->playlistView->setSelectionBehavior(QAbstractItemView::SelectRows);
-   ui->playlistView->setSelectionMode(QAbstractItemView::SingleSelection);
-   ui->playlistView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-   ui->playlistView->horizontalHeader()->setStretchLastSection(true);
-
-   m_player = new QMediaPlayer(this);          // Init player
-   m_playlist = new QMediaPlaylist(m_player);  // Init playlist
-   m_player->setPlaylist(m_playlist);
-   m_player->setVolume(70);
-   m_playlist->setPlaybackMode(QMediaPlaylist::Loop);  // Set circular play mode playlist
-
-
-   // Here we note that the navigation is done through the playlist playlist
-   // and start / pause / stop via the player itself
-   connect(ui->btn_previous, &QToolButton::clicked, m_playlist, &QMediaPlaylist::previous);
-   connect(ui->btn_next, &QToolButton::clicked, m_playlist, &QMediaPlaylist::next);
-   connect(ui->btn_play, &QToolButton::clicked, m_player, &QMediaPlayer::play);
-   connect(ui->btn_pause, &QToolButton::clicked, m_player, &QMediaPlayer::pause);
-   connect(ui->btn_stop, &QToolButton::clicked, m_player, &QMediaPlayer::stop);
-
-   // When you doubleclick on the track in the table set the track in the playlist
-   connect(ui->playlistView, &QTableView::doubleClicked, [this](const QModelIndex &index){
-       m_playlist->setCurrentIndex(index.row());
-   });
-
-   // if the current track of the index change in the playlist, set the file name in a special label
-   connect(m_playlist, &QMediaPlaylist::currentIndexChanged, [this](int index){
-       ui->currentTrack->setText(m_playListModel->data(m_playListModel->index(index, 0)).toString());
-   });
-
-
+                             QSqlQueryModel*cinus;
+                             cinus= eq.remplircombo();
+                        ui->comboBox_2->setModel(cinus);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 
-        delete m_playListModel;
-        delete m_playlist;
-        delete m_player;
 }
 
 
-void MainWindow::on_insertButton_2_clicked()
+void MainWindow::on_ajouter_e_clicked()
 {
-    QMessageBox msgBox;
-    int matricule=ui->matricule1->text().toInt();
-    QString marque=ui->marque->text();
-    QString Modele=ui->modele->currentText();
-    QString etat=ui->etat->currentText();
-    int KM=ui->km->text().toInt();
-    QString matricule_string=QString::number(matricule);
-  if (!A.existance(matricule_string)){
-   ambulance A( matricule,marque,Modele,etat,KM);
+    int id_equipement=ui->id_e->text().toInt();
+    ui->tab_equipement->setModel(eq.afficher());
+        QString reference=ui->ref_e->text();
+       int prix=ui->prix_e->text().toInt();
+        QString nom_equipement=ui->nom_e->text();
 
-   bool test=A.ajouter();
+        equipement eq(id_equipement,reference,prix,nom_equipement);
+        bool test=eq.ajouter();
+        if(test)
+       {
+            ui->tab_equipement->setModel(eq.afficher());
 
-   if( test){
-       msgBox.setText("Informations has been added");
-       ui->tab_ambulance->setModel(A.afficher());
-             msgBox.exec();
-   } }
-   else {
-       msgBox.setText("Informations has been failed");
-             msgBox.exec();
-   }
+/*
+         QMessageBox::information(nullptr, QObject::tr("oui"),
+         QObject::tr("ajout effectuee.\n"
+                     "Click Cancel to exit."), QMessageBox::Cancel);
+
+*/
+
+on_pushButton_success_clicked();
 
 
+
+       }
+        else {/*
+            QMessageBox::critical(nullptr, QObject::tr("non"),
+            QObject::tr("ajout non effectuee.\n"
+                       "Click Cancel to exit."), QMessageBox::Cancel);*/
+            on_pushButton_error_clicked();
 }
-
-void MainWindow::on_deleteButton_clicked()
+}
+void MainWindow::on_pushButton_success_clicked()
 {
-ambulance A1;
-A1.setmatricule(ui->matricule1->text().toInt());
-
-bool test=A1.supprimer(A1.getmatricule());
-QMessageBox msgBox;
-if( test){
-    msgBox.setText("Removed");
-    ui->tab_ambulance->setModel(A.afficher());
-         msgBox.exec();
-}
-else {
-    msgBox.setText("Failed");
-          msgBox.exec();
-}
+    NotificationParams params;
+    params.title = "Equipement a ete ajoute avec succès";
+    params.message = Operation::DoSomething(Result::RESULT_SUCCESS);
+    notificationLayout.AddNotificationWidget(this, params);
 }
 
-
-
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_error_clicked()
 {
-    QDesktopServices::openUrl(QUrl("https://wa.me/+21626864405",QUrl::TolerantMode));
+    NotificationParams params;
+    params.title = "Equipement n'est pas ajoute";
+    params.message = Operation::DoSomething(Result::RESULT_ERROR);
+
+    notificationLayout.AddNotificationWidget(this, params);
 }
 
 
+void MainWindow::on_supprimer_e_clicked()
+{ equipement eq;
+    eq.setid_equipement(ui->id_e_s->text().toInt());
+   //int id_equipement =ui->id_e_s->text().toInt();
 
+       bool test=eq.supprimer(eq.getid_equipement());
+       if(test)
+      {
+                       ui->tab_equipement->setModel(eq.afficher());
+
+
+         on_pushButton_success1_clicked();
+         }
+       else{
+
+         on_pushButton_error1_clicked();
+}
+}
+
+void MainWindow::on_pushButton_success1_clicked()
+{
+    NotificationParams params;
+    params.title = "Equipement a ete supprimer avec succès";
+    params.message = Operation::DoSomething(Result::RESULT_SUCCESS);
+    notificationLayout.AddNotificationWidget(this, params);
+}
+
+void MainWindow::on_pushButton_error1_clicked()
+{
+    NotificationParams params;
+    params.title = "suppression non effectue";
+    params.message = Operation::DoSomething(Result::RESULT_ERROR);
+
+    notificationLayout.AddNotificationWidget(this, params);
+}
 
 
 void MainWindow::on_pushButton_2_clicked()
-{
-    //Update
+{int id_equipement=ui->id_e_2->text().toInt();
 
-    int matricule=ui->matricule1->text().toInt();
-    QString marque=ui->marque->text();
-    QString Modele=ui->modele->currentText();
-    QString etat=ui->etat->currentText();
-    int KM=ui->km->text().toInt();
-    ambulance A( matricule,marque,Modele,etat,KM);
-/*
-    QString matricule_string=QString::number(matricule);
-    QString km_string=QString::number(KM);
-*/
-       /* QSqlQuery quer;
-        quer.prepare("update AMBULANCE set MATRICULE='"+matricule_string+"', MARQUE='"+marque+"',MODELE='"+Modele+"',KILOMETRAGE='"+km_string+"',   ETAT='"+etat+"' WHERE MATRICULE='"+matricule_string+"' ");
-        if(quer.exec())
-        {
-            ui->tab_ambulance->setModel(A.afficher());
-            QMessageBox::information(nullptr,QObject::tr("OK"), QObject::tr("modification effectué \n""Click Cancel to exit."),QMessageBox::Cancel);
-        }
-        else
-            QMessageBox::critical(nullptr,QObject::tr("not OK"),  QObject::tr("modification non effectué \n"  "Click Cancel to exit."),QMessageBox::Cancel);
-*/
+    QString reference=ui->ref_e_2->text();
+    int prix=ui->prix_e_2->text().toInt();
+    QString nom_equipement=ui->nom_e_2->text();
+     equipement eq(id_equipement,reference,prix,nom_equipement);
 
-    bool test=A.update();
-    QMessageBox msgBox;
-    if( test){
-        msgBox.setText("updated");
-        ui->tab_ambulance->setModel(A.afficher());
-             msgBox.exec();
-    }
-    else {
-        msgBox.setText("Failed");
-              msgBox.exec();
-    }
-    }
+    bool test= eq.modifier();
+    if(test)
+   {
+                    ui->tab_equipement->setModel(eq.afficher());
 
 
-
-
-
-bool MainWindow::postrequest(QString smsmsg,QString phonenumber)
-{
-    bool tried=false;
- // create custom temporary event loop on stack
-       QEventLoop eventLoop;
-
-       // "quit()" the event-loop, when the network request "finished()"
-       QNetworkAccessManager mgr;
-       QObject::connect(&mgr, SIGNAL(finished(QNetworkReply*)), &eventLoop, SLOT(quit()));
-
-       // the HTTP request
-       QNetworkRequest req( QUrl( QString("https://api.orange.com/smsmessaging/v1/outbound/tel%3A%2B322804/requests") ) );
-
-      req.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-
-
-        QString api= "Bearer " + apikey;
-        req.setRawHeader("Authorization", api.toUtf8());
-        QJsonObject msg;
-        msg["message"] = smsmsg;
-        QJsonObject obj;
-        obj["address"] = "tel:"+phonenumber;
-        obj["senderAddress"] = "tel:+322804";
-        obj["outboundSMSTextMessage"] = msg;
-        QJsonObject body;
-        body["outboundSMSMessageRequest"] = obj;
-        QJsonDocument doc(body);
-        QByteArray data = doc.toJson();
-       QNetworkReply *reply = mgr.post(req,data);
-       eventLoop.exec(); // blocks stack until "finished()" has been called
-
-       if (reply->error() == QNetworkReply::NoError) {
-           //success
-           qDebug() << "Success" ;
-           delete reply;
-           return true;
+      on_pushButton_success2_clicked();
        }
-       else {
-           //failure
-           qDebug() << "Failure" << reply->error();
-           if (reply->errorString()=="Host requires authentication")
-           {
-               if (!tried)
-               {
-               apikey = QInputDialog::getText(0, "API Key dialog",
-                                              "API Key expired, Set a new one :", QLineEdit::Normal,
-                                              "", nullptr);
-               if (postrequest(smsmsg,phonenumber))
-               {
-                   return true;
-               }
+    else{
 
-               }
-               tried = true;
-
-           }
-           delete reply;
-           return false;
-       }
-
+    on_pushButton_error2_clicked();
+    }
 }
 
 
-void MainWindow::on_tab_ambulance_clicked(const QModelIndex &index)
-//£££££££Remp
+void MainWindow::on_pushButton_success2_clicked()
 {
-    int val=ui->tab_ambulance->model()->data(index).toInt();
-    QString val_string=QString::number(val);
-        QSqlQuery qry;
+    NotificationParams params;
+    params.title = "Equipement a ete modifier avec succès";
+    params.message = Operation::DoSomething(Result::RESULT_SUCCESS);
+    notificationLayout.AddNotificationWidget(this, params);
+}
 
-        qry.prepare("select * from AMBULANCE where MATRICULE=:v ");
-        qry.bindValue(":v",val_string);
-        if(qry.exec())
-        {
-            while(qry.next())
+void MainWindow::on_pushButton_error2_clicked()
+{
+    NotificationParams params;
+    params.title = "modification non effectue";
+    params.message = Operation::DoSomething(Result::RESULT_ERROR);
+
+    notificationLayout.AddNotificationWidget(this, params);
+}
+
+void MainWindow::on_tab_equipement_clicked(const QModelIndex &index)
+{
+    {
+        int val=ui->tab_equipement->model()->data(index).toInt();
+        QString val_string=QString::number(val);
+            QSqlQuery qry;
+
+            qry.prepare("select * from EQUIPEMENT where ID_EQUIPEMENT=:v ");
+            qry.bindValue(":v",val_string);
+            if(qry.exec())
             {
-                ui->matricule1->setText(qry.value(0).toString());
-                ui->marque->setText(qry.value(1).toString());
-                ui->modele->setCurrentText(qry.value(2).toString());
-                ui->km->setText(qry.value(3).toString());
-                ui->etat->setCurrentText(qry.value(4).toString());
+                while(qry.next())
+                {
+                    ui->id_e_2->setText(qry.value(0).toString());
+                    ui->ref_e_2->setText(qry.value(2).toString());
+                    ui->prix_e_2->setText(qry.value(3).toString());
+                    ui->nom_e_2->setText(qry.value(4).toString());
+                    ui->id_e_s->setText(qry.value(0).toString());
+
+                }
 
             }
-
-        }
-        else
-        {
-            QMessageBox::critical(nullptr, QObject::tr("selection n'est pas effuctué"),  QObject::tr("connection failed.\n" "Click Cancel to exit."), QMessageBox::Cancel);
-        }
+            else
+            {
+                QMessageBox::critical(nullptr, QObject::tr("selection n'est pas effuctué"),  QObject::tr("connection failed.\n" "Click Cancel to exit."), QMessageBox::Cancel);
+            }
+}
 }
 
 
+void MainWindow::on_pushButton_success3_clicked()
+{
+    NotificationParams params;
+    params.title = "Tri effectué avec succès ";
+    params.message = Operation::DoSomething(Result::RESULT_SUCCESS);
+    notificationLayout.AddNotificationWidget(this, params);
+}
+
+void MainWindow::on_pushButton_success4_clicked()
+{
+    NotificationParams params;
+    params.title = "Qr Code effectué avec succès ";
+    params.message = Operation::DoSomething(Result::RESULT_SUCCESS);
+    notificationLayout.AddNotificationWidget(this, params);
+}
+
+void MainWindow::on_lineEditchercher_cursorPositionChanged(int arg1, int arg2)
+{
+
+        ui->tab_equipement->setModel(eq.rechercher(ui->lineEditchercher->text()));
+
+            QString test =ui->lineEditchercher->text();
+
+            if(test=="")
+            {
+                ui->tab_equipement->setModel(eq.afficher());//refresh
+            }
+    }
+
+void MainWindow::on_pushButton_error5_clicked()
+{
+    NotificationParams params;
+    params.title = "Qr Code non efféctue L'équipement n'existe pas";
+    params.message = Operation::DoSomething(Result::RESULT_ERROR);
+
+    notificationLayout.AddNotificationWidget(this, params);
+}
+void MainWindow::on_qrcodegen_3_clicked()
+{
+
+        using namespace qrcodegen;
+
+        QString value = ui->lineEdit_qrcode_3->text();
+
+        QSqlQuery qry;
+        if (qry.prepare("SELECT * FROM Equipement WHERE id_equipement = :id_equipement")) {
+            qry.bindValue(":id_equipement", value);
+            if (qry.exec() && qry.next()) {
+                QString id_equipement = qry.value(0).toString().simplified();
+                QString reference = qry.value(1).toString().simplified();
+                QString prix = qry.value(2).toString().simplified();
+                QString nom_equipement = qry.value(3).toString().simplified();
+
+                QString text = "id equipement =" + id_equipement + "\n"
+                               + "reference =" + reference + "\n"
+                               + "prix =" + prix + "\n"
+                               + "nom equipement =" + nom_equipement + "\n";
+
+                // Create the QR Code object
+                QrCode qr = QrCode::encodeText(text.toUtf8().data(), QrCode::Ecc::MEDIUM);
+
+                qint32 sz = qr.getSize();
+                QImage im(sz, sz, QImage::Format_RGB32);
+                QRgb black = qRgb(191, 112, 105);
+                QRgb white = qRgb(255, 255, 255);
+                for (int y = 0; y < sz; y++) {
+                    for (int x = 0; x < sz; x++) {
+                        im.setPixel(x, y, qr.getModule(x, y) ? black : white);
+                    }
+                }
+                ui->qrcodecommande_3->setPixmap(QPixmap::fromImage(im.scaled(200, 200, Qt::KeepAspectRatio, Qt::FastTransformation), Qt::MonoOnly));
+                on_pushButton_success4_clicked();
+            } else {
+on_pushButton_error5_clicked();            }
+        } else {
+            QMessageBox::critical(this, tr("Erreur"), qry.lastError().text());
+        }
+    }
 
 
-// trier
+
 void MainWindow::on_comboBox_activated(const QString &arg1)
 {
-    if (arg1=="matricule")
-        ui->tab_ambulance->setModel(A.trier(1));
-    if (arg1=="modele")
-        ui->tab_ambulance->setModel(A.trier(2));
-    if (arg1=="kilometrage")
-        ui->tab_ambulance->setModel(A.trier(3));
+    if (arg1=="id_equipement")
+            ui->tab_equipement->setModel(eq.trier(1));
+        if (arg1=="reference")
+            ui->tab_equipement->setModel(eq.trier(2));
+        if (arg1=="prix")
+            ui->tab_equipement->setModel(eq.trier(3));
+        if (arg1=="nom_equipement")
+            ui->tab_equipement->setModel(eq.trier(4));
 }
 
-//pdf
 void MainWindow::on_pushButton_3_clicked()
 {
 
+        /*QString currentDir = QDir::currentPath();
+        qDebug() << "Répertoire de travail actuel : " << currentDir;*/
 
-    QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
-            if (QFileInfo(fileName).suffix().isEmpty())
-            {
-                fileName.append(".pdf");
-            }
-            QPrinter printer(QPrinter::PrinterResolution);
-            printer.setOutputFormat(QPrinter::PdfFormat);
-            printer.setPaperSize(QPrinter::A4);
-            printer.setOutputFileName(fileName);
-            QTextDocument doc;
-            QPdfWriter pdf(fileName);
-            QPainter painter(&pdf);
-            int i = 4000;
-            painter.setPen(Qt::red);//titre
-            painter.setFont(QFont("Cambria", 30));
-            painter.drawText(1700,1200,"LISTES DES AMBULANCES");
-            painter.setPen(Qt::black);
-            painter.setFont(QFont("Cambria",14));
-            painter.drawRect(0,3000,9600,500);
-            painter.setFont(QFont("Cambria",11));
-            painter.drawText(400,3300,"MATRICULE");
-            painter.drawText(1600,3300,"MARQUE");
-            painter.drawText(3400,3300,"MODELE");
-            painter.drawText(4800,3300,"ETAT");
-            painter.drawText(6600,3300,"KILOMETRAGE");
-            // Add signature to the PDF
-            painter.setFont(QFont("Cambria",12, QFont::Bold));
-            painter.drawText(7000, 9600, "Signature:");
-            painter.drawLine(7400, 9650, 9200, 9650);
-
-
-             //date
-
-            QDateTime now = QDateTime::currentDateTime();
-            painter.setFont(QFont("Cambria", 11));
-            painter.drawText(7900, 480, QString("Date: %1").arg(now.toString("yyyy-MM-dd")));
-
-
-            QSqlQuery query;
-            query.prepare("select * from AMBULANCE");
-            query.exec();
-            while (query.next())
-            {
-                painter.drawText(400,i,query.value(0).toString());
-                painter.drawText(1600,i,query.value(1).toString());
-                painter.drawText(3400,i,query.value(2).toString());
-                painter.drawText(4800,i,query.value(3).toString());
-                painter.drawText(6900,i,query.value(4).toString());
-                i = i + 500;
-            }
-
-
-            // image
-            QImage image(":/new/prefix1/aaaa.png");
-            painter.drawImage(QRect(100, 100, 600, 600), image);
-
-
-
-            doc.print(&printer);
-
-
-
-
-
-}
-
-
-
-
-//sms
-void MainWindow::on_pushButton_4_clicked()
-
-{
-     QMessageBox msgBox;
-     QString Num=ui->SMSTEXT->text();
-     postrequest("Bonjour,l'ambulance va arriver dans quelques minutes",Num);
-     msgBox.setText("SMS has been sent");
-     msgBox.exec();
-}
-
-
-
-//rechercher
-void MainWindow::on_chercher_textEdited(const QString &arg1)
-{
-    QString a=ui->chercher->text();
-
-    ui->tab_ambulance->setModel(A.recherche(arg1,arg1,arg1,arg1));
-
-}
-
-
-
-
-
-//clandrier
-void MainWindow::on_calendarWidget_clicked(const QDate &date)
-{
-
-
-
-
-        QString dateString=date.toString();
-        QString query = QString("SELECT note FROM calendrier WHERE dateC ='%1'")
-                                .arg(dateString);
-
-        QSqlQuery sqlQuery;
-        sqlQuery.prepare(query);
-        if (sqlQuery.exec()) {
-            if (sqlQuery.next()) {
-                ui->note->setText(sqlQuery.value(0).toString());
-                ui->calendarWidget->setDateTextFormat(date, QTextCharFormat());
-                QTextCharFormat format;
-                format.setForeground(Qt::blue); // set the foreground color to red
-                format.setFontWeight(QFont::Bold); // set the font weight to bold
-                format.setFontPointSize(12); // set the font size to 12
-
-
-                ui->calendarWidget->setDateTextFormat(date, format); // set the text format for the date
-            }
-            else {
-                ui->note->setText("");
-                ui->calendarWidget->setDateTextFormat(date, QTextCharFormat()); // remove any existing text format for the date
-            }
-        } else {
-            qDebug() << "Error executing SQL query: " << sqlQuery.lastError().text();
+        QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
+        if (QFileInfo(fileName).suffix().isEmpty())
+        {
+            fileName.append(".pdf");
         }
-        qDebug() << "Selected Date: " << dateString;
+        QPrinter printer(QPrinter::PrinterResolution);
+        printer.setOutputFormat(QPrinter::PdfFormat);
+        printer.setPaperSize(QPrinter::A4);
+        printer.setOutputFileName(fileName);
+        QTextDocument doc;
+        QPdfWriter pdf(fileName);
+        QPainter painter(&pdf);
+        int i = 4000;
+
+        // Charger l'image de logo
+
+    QPixmap logo("images/Capture d’écran 2023-04-02 215328.png");
+    QImage signature("images/signature.png");
+        // Redimensionner l'image si nécessaire
+        logo = logo.scaledToWidth(1000, Qt::SmoothTransformation);
+        if (logo.isNull())
+        {
+            qDebug() << "Erreur : impossible de charger le logo";
+        }
+
+        if (signature.isNull())
+        {
+            qDebug() << "Erreur : impossible de charger la signature";
+        }
+
+        qDebug() << logo.size();
+         qDebug() << signature.size();
+        // Dessiner le logo en haut à gauche de la page
+
+    painter.drawPixmap(82000,2000,logo.scaled(QSize(1000, 626), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    logo = logo.scaled(QSize(1000, 626), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 
 
+    if (painter.device()->paintingActive() && logo.isNull())
+    {
+        qDebug() << "Erreur : impossible de dessiner le logo";
+    }
+        painter.setPen(Qt::blue);//titre
+        painter.setFont(QFont("Cambria", 30));
+        painter.drawText(1700,1200,"LISTES DES EQUIPEMENTS");
+
+        painter.setPen(Qt::black);
+        painter.setFont(QFont("Cambria",14));
+        painter.drawRect(0,3000,9600,500);
+        painter.setFont(QFont("Cambria",11));
+        painter.drawText(200,3300,"ID_EQUIPEMENT ");
+        painter.drawText(1800,3300, "REFERENCE");
+        painter.drawText(3000,3300,"PRIX");
+        painter.drawText(4500,3300,"NOM_EQUIPEMENT ");
 
 
+        // Get the current date and format it as a string
+        QDateTime currentDate = QDateTime::currentDateTime();
+        QString dateString = currentDate.toString("dd/MM/yyyy");
 
-}
-
-void MainWindow::on_pushButton_5_clicked()
-{
-
-    QString noteText = ui->note->toPlainText();
-        QDate selectedDate = ui->calendarWidget->selectedDate();
-        QString dateString = selectedDate.toString();
+        // Draw the current date at the top-right corner of the page
+        painter.setFont(QFont("Cambria",11));
+        painter.drawText(8200,2000, dateString);
 
         QSqlQuery query;
-
-        query.prepare("INSERT INTO CALENDRIER (DATEC, NOTE) "
-                      "VALUES (:date, :note)");
-        query.bindValue(":date", dateString);
-        query.bindValue(":note", noteText);
-
-          //qDebug() << "Selected Date: button" << dateString;
+        query.prepare("select * from EQUIPEMENT");
         query.exec();
+        while (query.next())
+        {
+            painter.drawText(200,i,query.value(0).toString());
+            painter.drawText(1800,i,query.value(1).toString());
+            painter.drawText(3000,i,query.value(2).toString());
+            painter.drawText(4500,i,query.value(3).toString());
 
+            i = i + 500;
 
-
-
-
-}
-
-void MainWindow::on_updateNote_clicked()
-{
-
-        QString noteText = ui->note->toPlainText();
-        QDate selectedDate = ui->calendarWidget->selectedDate();
-        QString dateString = selectedDate.toString();
-
-        QSqlQuery query;
-        query.prepare("UPDATE calendrier SET note = :note WHERE dateC = :date");
-        query.bindValue(":note", noteText);
-        query.bindValue(":date", dateString);
-        if (query.exec()) {
-            QMessageBox::information(this, "Note Updated", "Note updated for " + dateString);
-        } else {
-            QMessageBox::critical(this, "Error", "Failed to update note: " + query.lastError().text());
+            QImage image(":/new/prefix7/AAAA.png");
+                        painter.drawImage(QRect(100, 100, 600, 600), image);
         }
 
-}
+        doc.print(&printer);
 
-void MainWindow::on_deleteNote_clicked()
+
+on_pushButton_success10_clicked();
+
+}
+void MainWindow::on_pushButton_success10_clicked()
 {
-
-        QDate selectedDate = ui->calendarWidget->selectedDate();
-        QString dateString = selectedDate.toString();
-
-        QSqlQuery query;
-        query.prepare("DELETE FROM calendrier WHERE dateC = :date");
-        query.bindValue(":date", dateString);
-        if (query.exec()) {
-            QMessageBox::information(this, "Note Deleted", "Note deleted for " + dateString);
-            ui->note->setText("");
-        } else {
-            QMessageBox::critical(this, "Error", "Failed to delete note: " + query.lastError().text());
-        }
-
-
+    NotificationParams params;
+    params.title = "export PDF avec succes";
+    params.message = Operation::DoSomething(Result::RESULT_SUCCESS);
+    notificationLayout.AddNotificationWidget(this, params);
 }
 
-
-
-//media player
-
-void MainWindow::on_btn_add_clicked()
+void MainWindow::on_pushButton_clicked()
 {
-    // Using the file selection dialog to make multiple selections of mp3 files
-        QStringList files = QFileDialog::getOpenFileNames(this,
-                                                          tr("Open files"),
-                                                          QString(),
-                                                          tr("Audio Files (*.mp3)"));
-
-        // Next, set the data names and file paths
-        // into the playlist and table displaying the playlist
-        foreach (QString filePath, files) {
-            QList<QStandardItem *> items;
-            items.append(new QStandardItem(QDir(filePath).dirName()));
-            items.append(new QStandardItem(filePath));
-            m_playListModel->appendRow(items);
-            m_playlist->addMedia(QUrl(filePath));
-}
+    A.write_to_arduino("1");
 }
 
+void MainWindow::on_pushButton_4_clicked()
+{
+    A.write_to_arduino("0");
+}
+void MainWindow::update_label()
+{
+    data=A.read_from_arduino();
+
+
+
+    if(data=="1")
+
+    ui->label_9->setText("ON");
+
+    else if (data=="0")
+
+    ui->label_9->setText("OFF");
+
+
+}
+
+
+
+void MainWindow::on_ok_clicked()
+{
+    QString var = ui->comboBox_2->currentText();
+    if(var=="pansement")
+    {
+    A.write_to_arduino("2");
+    }
+
+    if(var=="stethoscope")
+    {
+       A.write_to_arduino("3");
+    }
+    if(var=="thermometre")
+    {
+        A.write_to_arduino("4");
+    }
+    if(var=="seringue")
+    {
+        A.write_to_arduino("5");
+    }
+    /*
+    QByteArray br = var.toUtf8();
+    qInfo()<<var<<endl;
+    A.write_to_arduino(br);
+    */
+}

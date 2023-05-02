@@ -35,6 +35,7 @@ public:
     QSqlQueryModel*  trier(int test);
     QChart *statistique_chart();
     void refreshChart();
+    QSqlQueryModel * afficherAr();
 
 
 

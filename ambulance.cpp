@@ -1,5 +1,5 @@
 #include "ambulance.h"
-#include "mainwindow.h"
+#include "gestionambulance.h"
 #include <QSqlQuery>
 #include <QtDebug>
 #include <QMessageBox>
@@ -318,7 +318,25 @@ QChart *ambulance::statistique_chart()
 
 
 
+QSqlQueryModel * ambulance::afficherAr(){
 
+
+    QSqlQueryModel *model =new QSqlQueryModel();
+
+
+          model->setQuery("SELECT * FROM PARKING");
+
+      /*    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Matricule"));
+          model->setHeaderData(1, Qt::Horizontal, QObject::tr("Marque"));
+          model->setHeaderData(2, Qt::Horizontal, QObject::tr("Modele"));
+            model->setHeaderData(3, Qt::Horizontal, QObject::tr("Etat"));
+             model->setHeaderData(4, Qt::Horizontal, QObject::tr("Kilometrage"));
+
+
+*/
+
+    return model;
+}
 
 
 
