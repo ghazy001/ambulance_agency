@@ -146,7 +146,7 @@ QChart *employee::statistique_chart()
     query1.prepare("SELECT * FROM EMPLOYE WHERE SALAIRE>'5000' ");
     query1.exec();
 
-    query2.prepare("SELECT *  FROM EMPLOYE WHERE SALAIRE>'1500' AND SALAIRE<'3000'");
+    query2.prepare("SELECT *  FROM EMPLOYE WHERE SALAIRE>'1700' AND SALAIRE<'3000'");
     query2.exec();
 
     query3.prepare("SELECT * FROM EMPLOYE WHERE SALAIRE>'800' AND SALAIRE<'1500' ");

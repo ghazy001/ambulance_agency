@@ -1,6 +1,5 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include "employee.h"
+#include "equipement.h"
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QSqlQueryModel>
@@ -8,469 +7,735 @@
 #include <QTextDocument>
 #include <QDataStream>
 #include <QSqlQuery>
-#include <QApplication>
+#include <QPixmap>
+#include<QImage>
+#include <QSystemTrayIcon>
+#include <QSystemTrayIcon>
+
+#include <QPixmap>
+#include<QImage>
+
+#include "ui_mainwindow.h"
+#include <QMessageBox>
+#include "connection.h"
+#include <QDate>
+#include <QString>
+#include <QIntValidator>
 #include <QLineEdit>
 #include <QRegExpValidator>
-#include <QRegularExpression>
-#include <QtCharts/QChartView>
-#include <QtCharts/QPieSeries>
-#include <QtCharts/QPieSlice>
-#include <QGridLayout>
-#include <QPainter>
-#include <QtPrintSupport/QPrinter>
-#include <QTextDocument>
-#include <QPdfWriter>
-#include <QFileDialog>
+#include <QSystemTrayIcon>
+
+
+#include <QMessageBox>
+#include "connection.h"
 #include <QDate>
-#include "smtp.h"
-#include <QtDebug>
-#include <QFile>
+#include <QString>
+#include <QIntValidator>
+#include <QLineEdit>
+#include <QRegExpValidator>
+#include <QSystemTrayIcon>
+
+#include<QPdfWriter>
+#include<QPainter>
+#include<QPixmap>
+#include<QPrinter>
+#include<QTextStream>
+#include<QTextDocument>
+#include<QFileDialog>
+#include<QGraphicsView>
+#include<QPdfWriter>
+#include<QSqlQuery>
+#include<QSystemTrayIcon>
+#include <QtNetwork/QAbstractSocket>
+#include <QtNetwork/QSslSocket>
+#include<QUrlQuery>
+#include<QJsonDocument>
+#include<QJsonObject>
+#include<QJsonArray>
+
+
+
+
+#include <QMessageBox>
+#include<QIntValidator>
+#include <QApplication>
+#include<QSound>
+#include<QDebug>
+#include<QMediaPlayer>
+#include <QPrinter>
+#include <QTextStream>
+#include <QTextDocument>
+#include <QDataStream>
+#include <QPrintDialog>
+#include <QSqlQuery>
+#include<QComboBox>
+#include<QSaveFile>
+#include<QBuffer>
+#include<QFileDialog>
+#include<QFile>
+#include <QMessageBox>
+#include <QDebug>
+#include <QIntValidator>
+#include <QSqlQueryModel>
+#include <QtCharts>
+#include <QChartView>
+#include <QLineSeries>
+#include<QDesktopServices>
+#include<QUrl>
+#include <QTextStream>
+#include <QTextDocument>
+#include <QtPrintSupport/QPrintDialog>
+#include <QtPrintSupport/QPrinter>
+#include <QtWidgets>
+#include<QFileDialog>
+
+#include<QGraphicsView>
+#include<QPdfWriter>
+#include<QSqlQuery>
+#include<QSystemTrayIcon>
+#include <QtNetwork/QAbstractSocket>
+#include <QtNetwork/QSslSocket>
+#include<QUrlQuery>
+#include<QJsonDocument>
+#include<QJsonObject>
+#include<QJsonArray>
+#include <QDate>
+#include <QTime>
+#include<QSqlTableModel>
+#include<QItemSelectionModel>
+#include<QTableWidgetItem>
+#include <QDesktopWidget>
+#include <QCoreApplication>
+#include <QDateEdit>
+#include <QComboBox>
 #include <QPixmap>
-#include <QImage>
-#include <QtGui/QPixmap>
+#include <QMediaPlayer>
+#include <QTabWidget>
+#include <QObject>
+#include <QDialog>
+#include <QValidator>
+#include <QPropertyAnimation>
+#include <QEasingCurve>
+#include <QSequentialAnimationGroup>
+#include <QState>
+#include <QStateMachine>
+#include <QSignalTransition>
+#include <QPainter>
+#include<QString>
+#include<QStatusBar>
+#include <QMovie>
+
+#include<QLabel>
+#include"QMessageBox"
+#include <QPdfWriter>
+#include <QtGui/QDesktopServices>
+#include <QUrl>
+#include <QIntValidator>
+#include <QMessageBox>
+#include <QSqlQuery>
+#include <QPrinter>
+#include <QPrintDialog>
+#include <QtSvg/QSvgRenderer>
+#include <QFileDialog>
+#include <fstream>
+#include "QrCode.hpp"
+#include <QAxObject>
+#include <QObject>
+#include <QDesktopServices>
+#include"QrCode.hpp"
+
+#include <QIntValidator>
+#include <QTableView>
+#include <QMessageBox>
+#include <QPixmap>
+#include<QPrinter>
+#include<QPainter>
+#include<QPrintDialog>
+#include <QPrintPreviewDialog>
+#include <QPdfWriter>
+#include <QtCharts>
+#include <QDesktopServices>
+#include <QtCharts/QAreaSeries>
+#include <QtCharts/QChartView>
+#include <QtCharts/QLineSeries>
+#include <QPieSlice>
+#include <QPieSeries>
+#include <QChartView>
+
+#include <QPrintDialog>
+#include <QFileDialog>
+
+
+
+
+#include <QMessageBox>
+#include "connection.h"
+#include <QDate>
+#include <QString>
+#include <QIntValidator>
+#include <QLineEdit>
+#include <QRegExpValidator>
+#include <QSystemTrayIcon>
+
+#include<QPdfWriter>
+#include<QPainter>
+#include<QPixmap>
+#include<QPrinter>
+#include<QTextStream>
+#include<QTextDocument>
+#include<QFileDialog>
+#include<QGraphicsView>
+#include<QPdfWriter>
+#include<QSqlQuery>
+#include<QSystemTrayIcon>
+#include <QtNetwork/QAbstractSocket>
+#include <QtNetwork/QSslSocket>
+#include<QUrlQuery>
+#include<QJsonDocument>
+#include<QJsonObject>
+#include<QJsonArray>
+
+
+
+
+#include <QMessageBox>
+#include<QIntValidator>
+#include <QApplication>
+#include<QSound>
+#include<QDebug>
+#include<QMediaPlayer>
+#include <QPrinter>
+#include <QTextStream>
+#include <QTextDocument>
+#include <QDataStream>
+#include <QPrintDialog>
+#include <QSqlQuery>
+#include<QComboBox>
+#include<QSaveFile>
+#include<QBuffer>
+#include<QFileDialog>
+#include<QFile>
+#include <QMessageBox>
+#include <QDebug>
+#include <QIntValidator>
+#include <QSqlQueryModel>
+#include <QtCharts>
+#include <QChartView>
+#include <QLineSeries>
+#include<QDesktopServices>
+#include<QUrl>
+#include <QTextStream>
+#include <QTextDocument>
+#include <QtPrintSupport/QPrintDialog>
+#include <QtPrintSupport/QPrinter>
+#include <QtWidgets>
+#include<QFileDialog>
+
+#include<QGraphicsView>
+#include<QPdfWriter>
+#include<QSqlQuery>
+#include<QSystemTrayIcon>
+#include <QtNetwork/QAbstractSocket>
+#include <QtNetwork/QSslSocket>
+#include<QUrlQuery>
+#include<QJsonDocument>
+#include<QJsonObject>
+#include<QJsonArray>
+#include <QDate>
+#include <QTime>
+#include<QSqlTableModel>
+#include<QItemSelectionModel>
+#include<QTableWidgetItem>
+#include <QDesktopWidget>
+#include <QCoreApplication>
+#include <QDateEdit>
+#include <QComboBox>
+#include <QPixmap>
+#include <QMediaPlayer>
+#include <QTabWidget>
+#include <QObject>
+#include <QDialog>
+#include <QValidator>
+#include <QPropertyAnimation>
+#include <QEasingCurve>
+#include <QSequentialAnimationGroup>
+#include <QState>
+#include <QStateMachine>
+#include <QSignalTransition>
+#include <QPainter>
+#include<QString>
+#include<QStatusBar>
+
 #include <QtCharts/QChartView>
 #include <QtCharts/QPieSeries>
 #include <QtCharts/QPieSlice>
 #include <QGridLayout>
 #include <QtCharts>
 #include <QChartView>
-#include <QtCharts/QChart>
+#include <QStackedWidget>
 
-#include "authentification.h"
+using qrcodegen::QrCode;
+using qrcodegen::QrSegment;
 
 
+using namespace qrcodegen;
+
+
+#include "Result.h"
+#include "Operation.h"
+
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+
+#include <QToolTip>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-
     ui->setupUi(this);
-    QSqlQueryModel* model = aut.afficher1();
-
-
-    ui->tab_employe->setModel(emp.afficher());
-     ui->tab_employe_2->setModel(aut.afficher1());
+    ui->tab_equipement->setModel(eq.afficher());
     ui->id_e->setValidator(new QIntValidator(0, 9999999, this));
-    ui->salaire_e->setValidator(new QIntValidator(0, 10000, this));
+    ui->prix_e->setValidator(new QIntValidator(0, 10000, this));
     ui->id_e_2->setValidator(new QIntValidator(0, 9999999, this));
-    ui->salaire_e_2->setValidator(new QIntValidator(0, 10000, this));
-     ui->id_e_s->setValidator(new QIntValidator(0, 9999999, this));
-     QRegExp
-         regExp("^[A-Za-z]*$");
-     ui->nom_e->setValidator(new QRegExpValidator(regExp, this));
- ui->prenom_e->setValidator(new QRegExpValidator(regExp, this));
-     ui->nom_e_2->setValidator(new QRegExpValidator(regExp, this));
-      ui->prenom_e_2->setValidator(new QRegExpValidator(regExp, this));
-
-       QRegExp
-               mailREX("\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z]{2,4}\\b");
-        ui->mail_e->setValidator(new QRegExpValidator(mailREX, this));
+    ui->prix_e_2->setValidator(new QIntValidator(0, 10000, this));
+    QRegExp
+    regExp("^[A-Za-z]*$");
+    ui->nom_e->setValidator(new QRegExpValidator(regExp, this));
+    ui->nom_e_2->setValidator(new QRegExpValidator(regExp, this));
 
 
+    QChart *chart=new QChart();
+    chart =eq.statistique_chart();
+    QChartView * ChartView=new QChartView(chart,ui->stats);
+    ChartView->resize(420,360);
+    ChartView->setRenderHint(QPainter::Antialiasing);
+    // ***arduino***
+                 int ret=A.connect_arduino(); // lancer la connexion à arduino
+                            switch(ret){
+                            case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+                                break;
+                            case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+                               break;
+                            case(-1):qDebug() << "arduino is not available";
+                            }
+                             QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(on_update_clicked())); // permet de lancer
+                             //le slot update_label suite à la reception du signal readyRead (reception des données).
 
 
-        QChart *chart1=new QChart();
-         chart1 =emp.statistique_chart1();
-       QChartView * ChartView1=new QChartView(chart1,ui->stats);
-       ChartView1->resize(420,360);
-       ChartView1->setRenderHint(QPainter::Antialiasing);
-       QChart *chart = new QChart();
-
-
-     chart =emp.statistique_chart();
-            QChartView * ChartView=new QChartView(chart,ui->stats_2);
-            ChartView->resize(420,360);
-            ChartView->setRenderHint(QPainter::Antialiasing);
-
-
-
-
-
-
+                             QSqlQueryModel*cinus;
+                             cinus= eq.remplircombo();
+                        ui->comboBox_2->setModel(cinus);
 }
-
-
-
-
-
 
 MainWindow::~MainWindow()
 {
     delete ui;
+
 }
 
 
 void MainWindow::on_ajouter_e_clicked()
 {
-    int id=ui->id_e->text().toInt();
-    ui->tab_employe->setModel(emp.afficher());
-        QString nom=ui->nom_e->text();
-        QString prenom=ui->prenom_e->text();
-        int salaire=ui->salaire_e->text().toInt();
-        QString mail=ui->mail_e->text();
+    int id_equipement=ui->id_e->text().toInt();
+    ui->tab_equipement->setModel(eq.afficher());
+        QString reference=ui->ref_e->text();
+       int prix=ui->prix_e->text().toInt();
+        QString nom_equipement=ui->nom_e->text();
 
-        employee emp(id,nom,prenom,salaire,mail);
-        bool test=emp.ajouter();
+        equipement eq(id_equipement,reference,prix,nom_equipement);
+        bool test=eq.ajouter();
         if(test)
        {
-            ui->tab_employe->setModel(emp.afficher());
+            ui->tab_equipement->setModel(eq.afficher());
 
-          QMessageBox::information(nullptr, QObject::tr("ok"),
-          QObject::tr("ajout effectuee.\n"
-                      "Click Cancel to exit."), QMessageBox::Cancel);
+/*
+         QMessageBox::information(nullptr, QObject::tr("oui"),
+         QObject::tr("ajout effectuee.\n"
+                     "Click Cancel to exit."), QMessageBox::Cancel);
+
+*/
+
+on_pushButton_success_clicked();
+
 
 
        }
-        else
-         QMessageBox::critical(nullptr, QObject::tr("not ok"),
-         QObject::tr("ajout non effectue.\n"
-                     "Click Cancel to exit."), QMessageBox::Cancel);
-
+        else {/*
+            QMessageBox::critical(nullptr, QObject::tr("non"),
+            QObject::tr("ajout non effectuee.\n"
+                       "Click Cancel to exit."), QMessageBox::Cancel);*/
+            on_pushButton_error_clicked();
+}
+}
+void MainWindow::on_pushButton_success_clicked()
+{
+    NotificationParams params;
+    params.title = "Equipement a ete ajoute avec succès";
+    params.message = Operation::DoSomething(Result::RESULT_SUCCESS);
+    notificationLayout.AddNotificationWidget(this, params);
 }
 
-
-
-
-void MainWindow::on_UPDATE_clicked()
+void MainWindow::on_pushButton_error_clicked()
 {
-int id=ui->id_e_2->text().toInt();
-        QString nom=ui->nom_e_2->text();
-        QString prenom=ui->prenom_e_2->text();
-        int salaire=ui->salaire_e_2->text().toInt();
-        QString mail=ui->mail_e_2->text();
-        QString id_string=QString::number(id);
-        QString sal_string=QString::number(salaire);
+    NotificationParams params;
+    params.title = "Equipement n'est pas ajoute";
+    params.message = Operation::DoSomething(Result::RESULT_ERROR);
 
-        employee emp(id,nom,prenom,salaire,mail);
-        bool test=emp.modifier(id);
-        if(test)
-       {
+    notificationLayout.AddNotificationWidget(this, params);
+}
 
-      ui->tab_employe->setModel(emp.afficher());
-
-          QMessageBox::information(nullptr, QObject::tr("ok"),
-          QObject::tr(" A jour .\n"
-                      "Click Cancel to exit."), QMessageBox::Cancel);
-
-
-         /* delete ui->stats_2;
-
-          // Créer et afficher la nouvelle vue de chart
-          QChart *chart = emp.statistique_chart();
-          QChartView *chartView = new QChartView(chart, ui->stats_2);
-          chartView->setRenderHint(QPainter::Antialiasing);
-          chartView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-         chartView->setChart(chart);
-         chartView->setRenderHint(QPainter::Antialiasing);
-
-         /* // Supprimer l'ancien graphique
-          delete ui->stats_2->chart();
-
-          // Créer un nouveau graphique mis à jour
-          QChart *newChart = emp.statistique_chart();
-
-          // Créer une vue de graphique et la redimensionner
-          QChartView *chartView = new QChartView(newChart, ui->stats_2);
-          chartView->resize(420, 360);
-          chartView->setRenderHint(QPainter::Antialiasing);
-
-          // Afficher le nouveau graphique
-          ui->stats_2->setChart(newChart);
-          ui->stats_2->setRenderHint(QPainter::Antialiasing);
-
-
-          /  QChart *chart=new QChart();
-          chart =emp.statistique_chart();
-          QChartView * ChartView=new QChartView(chart,ui->stats_2);
-*/
-//updateChart();
-
-       }
-        else
-         QMessageBox::critical(nullptr, QObject::tr("not ok"),
-         QObject::tr("ajout non effectue.\n"
-                     "Click Cancel to exit."), QMessageBox::Cancel);
-
-
-        }
 
 void MainWindow::on_supprimer_e_clicked()
+{ equipement eq;
+    eq.setid_equipement(ui->id_e_s->text().toInt());
+   //int id_equipement =ui->id_e_s->text().toInt();
+
+       bool test=eq.supprimer(eq.getid_equipement());
+       if(test)
+      {
+                       ui->tab_equipement->setModel(eq.afficher());
+
+
+         on_pushButton_success1_clicked();
+         }
+       else{
+
+         on_pushButton_error1_clicked();
+}
+}
+
+void MainWindow::on_pushButton_success1_clicked()
 {
-    employee emp;
-emp.setid(ui->id_e_s->text().toInt());
-aut.setLOGIN((ui->idajout->text()));
-bool test=emp.supprimer(emp.getid());
-bool test1=aut.supprimer1(aut.getLOGIN());
-QMessageBox msgBox;
-if( test || test1){
-    msgBox.setText("Removed");
-    ui->tab_employe->setModel(emp.afficher());
-    ui->tab_employe_2->setModel(aut.afficher1());
-         msgBox.exec();
-}
-else {
-    msgBox.setText("Failed");
-          msgBox.exec();
-}
+    NotificationParams params;
+    params.title = "Equipement a ete supprimer avec succès";
+    params.message = Operation::DoSomething(Result::RESULT_SUCCESS);
+    notificationLayout.AddNotificationWidget(this, params);
 }
 
-void MainWindow::on_tab_employe_clicked(const QModelIndex &index)
+void MainWindow::on_pushButton_error1_clicked()
 {
-    int val=ui->tab_employe->model()->data(index).toInt();
-      QString val_string=QString::number(val);
+    NotificationParams params;
+    params.title = "suppression non effectue";
+    params.message = Operation::DoSomething(Result::RESULT_ERROR);
 
-          QSqlQuery qry;
-
-          qry.prepare("select * from Employe where ID_EMPLOYE=:v ");
-          qry.bindValue(":v",val_string);
-          if(qry.exec())
-          {
-              while(qry.next())
-              {ui->id_e_2->setText(qry.value(0).toString());
-                  ui->nom_e_2->setText(qry.value(1).toString());
-                  ui->prenom_e_2->setText(qry.value(2).toString());
-                  ui->salaire_e_2->setText(qry.value(3).toString());
-                  ui->mail_e_2->setText(qry.value(4).toString());
-
-                  ui->id_e_s->setText(qry.value(0).toString());
-
-
-
-              }
-
-          }
-          else
-          {
-              QMessageBox::critical(nullptr, QObject::tr("selection n'est pas effuctué"),  QObject::tr("connection failed.\n" "Click Cancel to exit."), QMessageBox::Cancel);
-          }
+    notificationLayout.AddNotificationWidget(this, params);
 }
 
 
+void MainWindow::on_pushButton_2_clicked()
+{int id_equipement=ui->id_e_2->text().toInt();
+
+    QString reference=ui->ref_e_2->text();
+    int prix=ui->prix_e_2->text().toInt();
+    QString nom_equipement=ui->nom_e_2->text();
+     equipement eq(id_equipement,reference,prix,nom_equipement);
+
+    bool test= eq.modifier();
+    if(test)
+   {
+                    ui->tab_equipement->setModel(eq.afficher());
+
+
+      on_pushButton_success2_clicked();
+       }
+    else{
+
+    on_pushButton_error2_clicked();
+    }
+}
+
+
+void MainWindow::on_pushButton_success2_clicked()
+{
+    NotificationParams params;
+    params.title = "Equipement a ete modifier avec succès";
+    params.message = Operation::DoSomething(Result::RESULT_SUCCESS);
+    notificationLayout.AddNotificationWidget(this, params);
+}
+
+void MainWindow::on_pushButton_error2_clicked()
+{
+    NotificationParams params;
+    params.title = "modification non effectue";
+    params.message = Operation::DoSomething(Result::RESULT_ERROR);
+
+    notificationLayout.AddNotificationWidget(this, params);
+}
+
+void MainWindow::on_tab_equipement_clicked(const QModelIndex &index)
+{
+    {
+        int val=ui->tab_equipement->model()->data(index).toInt();
+        QString val_string=QString::number(val);
+            QSqlQuery qry;
+
+            qry.prepare("select * from EQUIPEMENT where ID_EQUIPEMENT=:v ");
+            qry.bindValue(":v",val_string);
+            if(qry.exec())
+            {
+                while(qry.next())
+                {
+                    ui->id_e_2->setText(qry.value(0).toString());
+                    ui->ref_e_2->setText(qry.value(2).toString());
+                    ui->prix_e_2->setText(qry.value(3).toString());
+                    ui->nom_e_2->setText(qry.value(4).toString());
+                    ui->id_e_s->setText(qry.value(0).toString());
+
+                }
+
+            }
+            else
+            {
+                QMessageBox::critical(nullptr, QObject::tr("selection n'est pas effuctué"),  QObject::tr("connection failed.\n" "Click Cancel to exit."), QMessageBox::Cancel);
+            }
+}
+}
+
+
+void MainWindow::on_pushButton_success3_clicked()
+{
+    NotificationParams params;
+    params.title = "Tri effectué avec succès ";
+    params.message = Operation::DoSomething(Result::RESULT_SUCCESS);
+    notificationLayout.AddNotificationWidget(this, params);
+}
+
+void MainWindow::on_pushButton_success4_clicked()
+{
+    NotificationParams params;
+    params.title = "Qr Code effectué avec succès ";
+    params.message = Operation::DoSomething(Result::RESULT_SUCCESS);
+    notificationLayout.AddNotificationWidget(this, params);
+}
+
+void MainWindow::on_lineEditchercher_cursorPositionChanged(int arg1, int arg2)
+{
+
+        ui->tab_equipement->setModel(eq.rechercher(ui->lineEditchercher->text()));
+
+            QString test =ui->lineEditchercher->text();
+
+            if(test=="")
+            {
+                ui->tab_equipement->setModel(eq.afficher());//refresh
+            }
+    }
+
+void MainWindow::on_pushButton_error5_clicked()
+{
+    NotificationParams params;
+    params.title = "Qr Code non efféctue L'équipement n'existe pas";
+    params.message = Operation::DoSomething(Result::RESULT_ERROR);
+
+    notificationLayout.AddNotificationWidget(this, params);
+}
+void MainWindow::on_qrcodegen_3_clicked()
+{
+
+        using namespace qrcodegen;
+
+        QString value = ui->lineEdit_qrcode_3->text();
+
+        QSqlQuery qry;
+        if (qry.prepare("SELECT * FROM Equipement WHERE id_equipement = :id_equipement")) {
+            qry.bindValue(":id_equipement", value);
+            if (qry.exec() && qry.next()) {
+                QString id_equipement = qry.value(0).toString().simplified();
+                QString reference = qry.value(1).toString().simplified();
+                QString prix = qry.value(2).toString().simplified();
+                QString nom_equipement = qry.value(3).toString().simplified();
+
+                QString text = "id equipement =" + id_equipement + "\n"
+                               + "reference =" + reference + "\n"
+                               + "prix =" + prix + "\n"
+                               + "nom equipement =" + nom_equipement + "\n";
+
+                // Create the QR Code object
+                QrCode qr = QrCode::encodeText(text.toUtf8().data(), QrCode::Ecc::MEDIUM);
+
+                qint32 sz = qr.getSize();
+                QImage im(sz, sz, QImage::Format_RGB32);
+                QRgb black = qRgb(191, 112, 105);
+                QRgb white = qRgb(255, 255, 255);
+                for (int y = 0; y < sz; y++) {
+                    for (int x = 0; x < sz; x++) {
+                        im.setPixel(x, y, qr.getModule(x, y) ? black : white);
+                    }
+                }
+                ui->qrcodecommande_3->setPixmap(QPixmap::fromImage(im.scaled(200, 200, Qt::KeepAspectRatio, Qt::FastTransformation), Qt::MonoOnly));
+                on_pushButton_success4_clicked();
+            } else {
+on_pushButton_error5_clicked();            }
+        } else {
+            QMessageBox::critical(this, tr("Erreur"), qry.lastError().text());
+        }
+    }
+
+
+
+void MainWindow::on_comboBox_activated(const QString &arg1)
+{
+    if (arg1=="id_equipement")
+            ui->tab_equipement->setModel(eq.trier(1));
+        if (arg1=="reference")
+            ui->tab_equipement->setModel(eq.trier(2));
+        if (arg1=="prix")
+            ui->tab_equipement->setModel(eq.trier(3));
+        if (arg1=="nom_equipement")
+            ui->tab_equipement->setModel(eq.trier(4));
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+
+        /*QString currentDir = QDir::currentPath();
+        qDebug() << "Répertoire de travail actuel : " << currentDir;*/
+
+        QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
+        if (QFileInfo(fileName).suffix().isEmpty())
+        {
+            fileName.append(".pdf");
+        }
+        QPrinter printer(QPrinter::PrinterResolution);
+        printer.setOutputFormat(QPrinter::PdfFormat);
+        printer.setPaperSize(QPrinter::A4);
+        printer.setOutputFileName(fileName);
+        QTextDocument doc;
+        QPdfWriter pdf(fileName);
+        QPainter painter(&pdf);
+        int i = 4000;
+
+        // Charger l'image de logo
+
+    QPixmap logo("images/Capture d’écran 2023-04-02 215328.png");
+    QImage signature("images/signature.png");
+        // Redimensionner l'image si nécessaire
+        logo = logo.scaledToWidth(1000, Qt::SmoothTransformation);
+        if (logo.isNull())
+        {
+            qDebug() << "Erreur : impossible de charger le logo";
+        }
+
+        if (signature.isNull())
+        {
+            qDebug() << "Erreur : impossible de charger la signature";
+        }
+
+        qDebug() << logo.size();
+         qDebug() << signature.size();
+        // Dessiner le logo en haut à gauche de la page
+
+    painter.drawPixmap(82000,2000,logo.scaled(QSize(1000, 626), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    logo = logo.scaled(QSize(1000, 626), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+
+
+    if (painter.device()->paintingActive() && logo.isNull())
+    {
+        qDebug() << "Erreur : impossible de dessiner le logo";
+    }
+        painter.setPen(Qt::blue);//titre
+        painter.setFont(QFont("Cambria", 30));
+        painter.drawText(1700,1200,"LISTES DES EQUIPEMENTS");
+
+        painter.setPen(Qt::black);
+        painter.setFont(QFont("Cambria",14));
+        painter.drawRect(0,3000,9600,500);
+        painter.setFont(QFont("Cambria",11));
+        painter.drawText(200,3300,"ID_EQUIPEMENT ");
+        painter.drawText(1800,3300, "REFERENCE");
+        painter.drawText(3000,3300,"PRIX");
+        painter.drawText(4500,3300,"NOM_EQUIPEMENT ");
+
+
+        // Get the current date and format it as a string
+        QDateTime currentDate = QDateTime::currentDateTime();
+        QString dateString = currentDate.toString("dd/MM/yyyy");
+
+        // Draw the current date at the top-right corner of the page
+        painter.setFont(QFont("Cambria",11));
+        painter.drawText(8200,2000, dateString);
+
+        QSqlQuery query;
+        query.prepare("select * from EQUIPEMENT");
+        query.exec();
+        while (query.next())
+        {
+            painter.drawText(200,i,query.value(0).toString());
+            painter.drawText(1800,i,query.value(1).toString());
+            painter.drawText(3000,i,query.value(2).toString());
+            painter.drawText(4500,i,query.value(3).toString());
+
+            i = i + 500;
+
+            QImage image(":/new/prefix7/AAAA.png");
+                        painter.drawImage(QRect(100, 100, 600, 600), image);
+        }
+
+        doc.print(&printer);
+
+
+on_pushButton_success10_clicked();
+
+}
+void MainWindow::on_pushButton_success10_clicked()
+{
+    NotificationParams params;
+    params.title = "export PDF avec succes";
+    params.message = Operation::DoSomething(Result::RESULT_SUCCESS);
+    notificationLayout.AddNotificationWidget(this, params);
+}
 
 void MainWindow::on_pushButton_clicked()
 {
-    QString e=ui->lineEdit_5->text();
-    ui->tab_employe->setModel(emp.recherche(e));
-
+    A.write_to_arduino("1");
 }
-void MainWindow::on_tab_employe_2_clicked(const QModelIndex &index)
-{
-
-        //int val=ui->tab_employe_2->model()->data(index).toInt();
-          //QString log=QString::number(val);
-         // QString val = ui->tab_employe_2->model()->index.data().toString(); // retrieves the value of the second column (i.e., column 1)
-          QString val= ui->tab_employe_2->model()->data(index.sibling(index.row(), 0)).toString(); // récupère la valeur de la colonne 1 (c'est-à-dire la deuxième colonne)
-
-          QSqlQuery qry;
-
-              qry.prepare("select * from AUTHENTIFICATION where LOGIN=:v ");
-              qry.bindValue(":v",val);
-              if(qry.exec())
-              {
-                  while(qry.next())
-                  {ui->idajout->setText(qry.value(0).toString());
-                      ui->mpajout->setText(qry.value(1).toString());
-
-
-
-
-                  }
-
-              }
-              else
-              {
-                  QMessageBox::critical(nullptr, QObject::tr("selection n'est pas effuctué"),  QObject::tr("connection failed.\n" "Click Cancel to exit."), QMessageBox::Cancel);
-              }
-    }
-
-void MainWindow::on_pushButton_2_clicked()
-{
-    QMessageBox::information(nullptr, QObject::tr("Ok"),
-             QObject::tr("tri effectué.\n"
-                         "Click Cancel to exit."), QMessageBox::Cancel);
-            ui->tab_employe->setModel(emp.tri_N_Passeport());
-
-}
-
-
-
-void MainWindow::on_pushButton_5_clicked()
-{
-    QMessageBox::information(nullptr, QObject::tr("Ok"),
-                              QObject::tr("tri effectué.\n"
-                                          "Click Cancel to exit."), QMessageBox::Cancel);
-                             ui->tab_employe->setModel(emp.triNOM());
-
-}
-
-
 
 void MainWindow::on_pushButton_4_clicked()
 {
-
-
-            QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
-            if (QFileInfo(fileName).suffix().isEmpty())
-            {
-                fileName.append(".pdf");
-            }
-            QPrinter printer(QPrinter::PrinterResolution);
-            printer.setOutputFormat(QPrinter::PdfFormat);
-            printer.setPaperSize(QPrinter::A4);
-            printer.setOutputFileName(fileName);
-            QTextDocument doc;
-            QPdfWriter pdf(fileName);
-            QPainter painter(&pdf);
-            int i = 4000; //  pos du txt
-
-
-
-
-
-            painter.setPen(Qt::blue);//titre
-            painter.setFont(QFont("Cambria", 30));
-            painter.drawText(1700,1200,"LISTES DES EMPLOYEES");
-
-            painter.setPen(Qt::black);
-               painter.setFont(QFont("Cambria",14));
-               painter.drawRect(0,3000,9600,500);
-               painter.setFont(QFont("Cambria",11));
-               painter.drawText(200,3300,"ID_EMPLOYE ");
-               painter.drawText(1800,3300, "NOM");
-               painter.drawText(3000,3300,"PRENOM");
-               painter.drawText(4500,3300,"SALAIRE ");
-               painter.drawText(6000,3300,"MAIL");
-            // Get the current date and format it as a string
-            QDateTime currentDate = QDateTime::currentDateTime();
-            QString dateString = currentDate.toString("dd/MM/yyyy");
-
-            // Draw the current date at the top-right corner of the page
-            painter.setFont(QFont("Cambria",11));
-            painter.drawText(8200,2000, dateString);
-
-            QSqlQuery query;
-            query.prepare("select * from EMPLOYE");
-            query.exec();
-            while (query.next())
-            {
-                painter.drawText(200,i,query.value(0).toString()); //id
-                painter.drawText(1800,i,query.value(1).toString());
-                painter.drawText(3000,i,query.value(2).toString());
-                painter.drawText(4500,i,query.value(3).toString());
-                painter.drawText(6000,i,query.value(4).toString());
-
-                i = i + 500;
-
-                QImage image(":/new/prefix1/icons/smart-ambulance-cartoon-character-design-playing-vector-32647342-removebg-preview (1).png");
-                            painter.drawImage(QRect(240, 100, 600, 600), image);
-                           /* QImage logo(":/new/prefix1/icons/logo.png");
-                                        painter.drawImage(QRect(130, 100, 600, 600), logo);
-
-                                    */
-            }
-
-            doc.print(&printer);
-
-
-    QMessageBox::information(nullptr, QObject::tr("OK"),
-                             QObject::tr("pdf done.\n"
-                              "Click ok to exit."), QMessageBox::Ok);
-
-
+    A.write_to_arduino("0");
 }
-
-
-
-
-
-
-
-
-void MainWindow::on_lineEdit_5_cursorPositionChanged(int arg1, int arg2)
+void MainWindow::update_label()
 {
-    ui->tab_employe->setModel(emp.recherche(ui->lineEdit_5->text()));
+    data=A.read_from_arduino();
 
-        QString test =ui->lineEdit_5->text();
 
-        if(test=="")
-        {
-            ui->tab_employe->setModel(emp.afficher());//refresh
-        }
+
+    if(data=="1")
+
+    ui->label_9->setText("ON");
+
+    else if (data=="0")
+
+    ui->label_9->setText("OFF");
+
+
 }
 
-void MainWindow::on_sendBtn_clicked()
+
+
+void MainWindow::on_ok_clicked()
 {
+    QString var = ui->comboBox_2->currentText();
+    if(var=="pansement")
+    {
+    A.write_to_arduino("2");
+    }
 
-    Smtp* smtp = new Smtp("iheb.zeddini@esprit.tn",ui->mail_pass->text(), "Smtp.gmail.com");
-    connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
-
-    if( !files.isEmpty() )
-        smtp->sendMail("iheb.zeddini@esprit.tn", ui->rcpt->text() ,ui->sujet->text(), ui->msg->toPlainText(), files );
-    else
-        smtp->sendMail("iheb.zeddini@esprit.tn", ui->rcpt->text() ,ui->sujet->text(),ui->msg->toPlainText());
-
-
+    if(var=="stethoscope")
+    {
+       A.write_to_arduino("3");
+    }
+    if(var=="thermometre")
+    {
+        A.write_to_arduino("4");
+    }
+    if(var=="seringue")
+    {
+        A.write_to_arduino("5");
+    }
+    /*
+    QByteArray br = var.toUtf8();
+    qInfo()<<var<<endl;
+    A.write_to_arduino(br);
+    */
 }
-
-
-void   MainWindow::mailSent(QString status)
-{
-
-    if(status == "Message sent")
-        QMessageBox::warning( nullptr, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
-    ui->rcpt->clear();
-    ui->sujet->clear();
-    ui->file->clear();
-    ui->msg->clear();
-    ui->mail_pass->clear();
-}
-
-void MainWindow::on_browseBtn_clicked()
-{
-    files.clear();
-
-    QFileDialog dialog(this);
-    dialog.setDirectory(QDir::homePath());
-    dialog.setFileMode(QFileDialog::ExistingFiles);
-
-    if (dialog.exec())
-        files = dialog.selectedFiles();
-
-    QString fileListString;
-    foreach(QString file, files)
-        fileListString.append( "\"" + QFileInfo(file).fileName() + "\" " );
-
-    ui->file->setText( fileListString );
-}
-
-
-void MainWindow::on_pushButton_8_clicked()
-{
-
-        ui->tab_employe_2->setModel(aut.afficher1());
-            QString LOGIN=ui->idajout->text();
-            QString MDP=ui->mpajout->text();
-
-            authentification aut(LOGIN,MDP);
-            bool test=aut.ajouter();
-            if(test)
-           {ui->mpajout->setEchoMode(QLineEdit::Password);
-
-                ui->tab_employe_2->setModel(aut.afficher1());
-                //ui->mpajout->setEchoMode(QLineEdit::Password);
-
-              QMessageBox::information(nullptr, QObject::tr("ok"),
-              QObject::tr("ajout effectuee.\n"
-                          "Click Cancel to exit."), QMessageBox::Cancel);
-
-           }
-            else
-             QMessageBox::critical(nullptr, QObject::tr("not ok"),
-             QObject::tr("ajout non effectue.\n"
-                         "Click Cancel to exit."), QMessageBox::Cancel);
-
-
-}
-
-
-

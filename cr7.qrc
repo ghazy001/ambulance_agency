@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/new/prefix2">
+        <file>SSS.png</file>
+        <file>TTT.png</file>
+        <file>pngegg-2.png</file>
+        <file>pngegg-3.png</file>
+        <file>DDD.com.png</file>
+        <file>star-2.png</file>
+        <file>stop.png</file>
+        <file>add.png</file>
+        <file>back.png</file>
+        <file>next.png</file>
+        <file>pause.png</file>
+        <file>play.png</file>
+    </qresource>
+</RCC>

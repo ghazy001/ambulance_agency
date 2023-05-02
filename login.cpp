@@ -10,7 +10,7 @@
 #include "register.h"
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
-
+#include"menu.h"
 
 login::login(QWidget *parent) :
     QDialog(parent),
@@ -80,7 +80,7 @@ void login::on_signInButton_clicked()
             qry.bindValue(":MDP",MDP);
             if (qry.next()) {
                 QMessageBox::information(this, "Connexion réussie", "Bienvenue, " + LOGIN + " !");
-                ma = new MainWindow(this);
+                ma = new menu(this);
                 ma->show();
             } else {
                 QMessageBox::critical(this, "Erreur de connexion", "Nom d'utilisateur ou salaire incorrect.");
