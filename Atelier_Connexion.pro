@@ -6,7 +6,7 @@
 
 QT       += core gui sql quick printsupport  widgets multimedia serialport charts svg
 
-QT       += core gui
+QT       += core gui serialport
 QT       += sql
 QT       += multimedia
 QT       += printsupport
@@ -39,6 +39,7 @@ SOURCES += \
     Operation.cpp \
     QrCode.cpp \
     Result.cpp \
+    arduino.cpp \
    equipement.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -50,6 +51,7 @@ HEADERS += \
     Operation.h \
     QrCode.hpp \
     Result.h \
+    arduino.h \
      equipement.h \
         mainwindow.h \
     connection.h

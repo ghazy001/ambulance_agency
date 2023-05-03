@@ -207,3 +207,12 @@ ChartThemeHighContrast: A high-contrast theme with black and white colors.
 
     return chart;
 }
+
+QSqlQueryModel* equipement::remplircombo(){
+  QSqlQueryModel* mod= new QSqlQueryModel();
+QSqlQuery query;
+query.prepare("select NOM_EQUIPEMENT from EQUIPEMENT");
+query.exec();
+mod->setQuery(query);
+return mod;
+}
