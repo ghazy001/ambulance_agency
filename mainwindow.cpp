@@ -348,22 +348,14 @@ void MainWindow::on_ajouter_e_clicked()
        {
             ui->tab_equipement->setModel(eq.afficher());
 
-/*
-         QMessageBox::information(nullptr, QObject::tr("oui"),
-         QObject::tr("ajout effectuee.\n"
-                     "Click Cancel to exit."), QMessageBox::Cancel);
 
-*/
 
 on_pushButton_success_clicked();
 
 
 
        }
-        else {/*
-            QMessageBox::critical(nullptr, QObject::tr("non"),
-            QObject::tr("ajout non effectuee.\n"
-                       "Click Cancel to exit."), QMessageBox::Cancel);*/
+        else {
             on_pushButton_error_clicked();
 }
 }
@@ -386,7 +378,8 @@ void MainWindow::on_pushButton_error_clicked()
 
 
 void MainWindow::on_supprimer_e_clicked()
-{ equipement eq;
+{
+    equipement eq;
     eq.setid_equipement(ui->id_e_s->text().toInt());
    //int id_equipement =ui->id_e_s->text().toInt();
 
@@ -399,6 +392,7 @@ void MainWindow::on_supprimer_e_clicked()
          on_pushButton_success1_clicked();
          }
        else{
+
 
          on_pushButton_error1_clicked();
 }
@@ -415,34 +409,38 @@ void MainWindow::on_pushButton_success1_clicked()
 void MainWindow::on_pushButton_error1_clicked()
 {
     NotificationParams params;
-    params.title = "suppression non effectue";
+    params.title = "Equipement n'est pas ajoute";
     params.message = Operation::DoSomething(Result::RESULT_ERROR);
 
     notificationLayout.AddNotificationWidget(this, params);
 }
 
-
 void MainWindow::on_pushButton_2_clicked()
-{int id_equipement=ui->id_e_2->text().toInt();
+{if(ui->id_e_2->text().isEmpty() || ui->ref_e_2->text().isEmpty() || ui->prix_e_2->text().isEmpty() || ui->nom_e_2->text().isEmpty() )
+    {
+        on_pushButton_error2_clicked();
 
-    QString reference=ui->ref_e_2->text();
-    int prix=ui->prix_e_2->text().toInt();
-    QString nom_equipement=ui->nom_e_2->text();
-     equipement eq(id_equipement,reference,prix,nom_equipement);
+         }
 
+else { int id_equipement=ui->id_e_2->text().toInt();
+
+        QString reference=ui->ref_e_2->text();
+        int prix=ui->prix_e_2->text().toInt();
+        QString nom_equipement=ui->nom_e_2->text();
+         equipement eq(id_equipement,reference,prix,nom_equipement);
     bool test= eq.modifier();
-    if(test)
+
    {
                     ui->tab_equipement->setModel(eq.afficher());
 
 
       on_pushButton_success2_clicked();
        }
-    else{
+   // else
 
-    on_pushButton_error2_clicked();
-    }
-}
+  //  on_pushButton_error2_clicked();}
+
+} }
 
 
 void MainWindow::on_pushButton_success2_clicked()
@@ -476,10 +474,10 @@ void MainWindow::on_tab_equipement_clicked(const QModelIndex &index)
                 while(qry.next())
                 {
                     ui->id_e_2->setText(qry.value(0).toString());
-                    ui->ref_e_2->setText(qry.value(2).toString());
-                    ui->prix_e_2->setText(qry.value(3).toString());
-                    ui->nom_e_2->setText(qry.value(4).toString());
-                    ui->id_e_s->setText(qry.value(0).toString());
+                    ui->ref_e_2->setText(qry.value(1).toString());
+                    ui->prix_e_2->setText(qry.value(2).toString());
+                    ui->nom_e_2->setText(qry.value(3).toString());
+                    ui->id_e_s->setText(qry.value(4).toString());
 
                 }
 
@@ -545,10 +543,16 @@ void MainWindow::on_qrcodegen_3_clicked()
                 QString prix = qry.value(2).toString().simplified();
                 QString nom_equipement = qry.value(3).toString().simplified();
 
-                QString text = "id equipement =" + id_equipement + "\n"
+                QString text = "gestion des Equipements : "  "\n"
+                        "   ****************"  "\n"
+                              "id equipement =" + id_equipement + "\n"
+                         "-----------------------"  "\n"
                                + "reference =" + reference + "\n"
+                         "-----------------------"  "\n"
                                + "prix =" + prix + "\n"
-                               + "nom equipement =" + nom_equipement + "\n";
+                         "-----------------------"  "\n"
+                               + "nom equipement =" + nom_equipement + "\n"
+                       "-----------------------"  "\n";
 
                 // Create the QR Code object
                 QrCode qr = QrCode::encodeText(text.toUtf8().data(), QrCode::Ecc::MEDIUM);
@@ -694,22 +698,7 @@ void MainWindow::on_pushButton_4_clicked()
 {
     A.write_to_arduino("0");
 }
-void MainWindow::update_label()
-{
-    data=A.read_from_arduino();
 
-
-
-    if(data=="1")
-
-    ui->label_9->setText("ON");
-
-    else if (data=="0")
-
-    ui->label_9->setText("OFF");
-
-
-}
 
 
 

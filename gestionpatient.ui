@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Gestion Patient</string>
   </property>
   <widget class="QLabel" name="male">
    <property name="geometry">
@@ -36,7 +36,12 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 75 11pt &quot;Arial&quot;;</string>
+    <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
    </property>
   </widget>
   <widget class="QComboBox" name="comboBox">
@@ -47,6 +52,16 @@
      <width>131</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(0, 85, 255);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
    </property>
    <item>
     <property name="text">
@@ -83,8 +98,18 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(0, 85, 255);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
+   </property>
    <property name="text">
-    <string>excel</string>
+    <string>EXCEL</string>
    </property>
   </widget>
   <widget class="QTabWidget" name="tabWidget">
@@ -106,7 +131,7 @@
     </font>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab_9">
     <attribute name="title">
@@ -124,20 +149,21 @@
      <property name="font">
       <font>
        <family>Arial</family>
-       <pointsize>11</pointsize>
-       <weight>50</weight>
+       <pointsize>10</pointsize>
+       <weight>10</weight>
        <italic>false</italic>
        <bold>false</bold>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:red ;
-
-font 700 10pt &quot;segoe Print&quot; ;
-
-color:white ;
-
-border-radius : 10px ;</string>
+      <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(255, 0, 0);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
      </property>
      <property name="text">
       <string>Supprimer</string>
@@ -311,6 +337,14 @@ border-radius : 10px ;</string>
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
      <property name="placeholderText">
       <string>             ID &lt; 999</string>
      </property>
@@ -324,6 +358,14 @@ border-radius : 10px ;</string>
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit_19">
      <property name="geometry">
@@ -333,6 +375,14 @@ border-radius : 10px ;</string>
        <width>211</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit_20">
@@ -344,6 +394,14 @@ border-radius : 10px ;</string>
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit_21">
      <property name="geometry">
@@ -353,6 +411,14 @@ border-radius : 10px ;</string>
        <width>211</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
      <property name="placeholderText">
       <string>  +216</string>
@@ -367,6 +433,14 @@ border-radius : 10px ;</string>
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
     </widget>
     <widget class="QPushButton" name="insert_2">
      <property name="geometry">
@@ -378,30 +452,14 @@ border-radius : 10px ;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 11pt &quot;Arial&quot;;
-
-OPushButon{
- 			border-radius: 15px;
-			border-right:. 1px solid #aaaaaa;
-			border-bottom: 1px solid #aaaaaa;
-}
-
-OPushButton:enabled {
-background-color: blue;
-color: white;
-}
-OPushBution-pressed {
-background-color: #0d2f72;
-color: #ffffe:
-}
-QPushButton:hover:!pressed{
-background-Color: #E1F4FF;
-Color: #0c2f70;
-}
-OPushButton:disabled {
-background-color: #aaaaaa:
-Color; #ffffff
-}</string>
+      <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(0, 85, 255);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
      </property>
      <property name="text">
       <string>Ajouter</string>
@@ -578,31 +636,12 @@ Color; #ffffff
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 75 11pt &quot;Arial&quot;;
-
-OPushButon{
- 			border-radius: 15px;
-			border-right:. 1px solid #aaaaaa;
-			border-bottom: 1px solid #aaaaaa;
-}
-
-OPushButton:enabled {
-background-color: blue;
-color: white;
-}
-OPushBution-pressed {
-background-color: #0d2f72;
-color: #ffffe:
-}
-QPushButton:hover:!pressed{
-background-Color: #E1F4FF;
-Color: #0c2f70;
-}
-OPushButton:disabled {
-background-color: #aaaaaa:
-Color; #ffffff
-}
-font: 75 11pt &quot;Arial&quot;;</string>
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="mod2_3">
@@ -615,32 +654,12 @@ font: 75 11pt &quot;Arial&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 75 11pt &quot;Arial&quot;;
-
-OPushButon{
-	
-	
- 			border-radius: 15px;
-			border-right:. 1px solid #aaaaaa;
-			border-bottom: 1px solid #aaaaaa;
-}
-
-OPushButton:enabled {
-background-color: blue;
-color: white;
-}
-OPushBution-pressed {
-background-color: #0d2f72;
-color: #ffffe:
-}
-QPushButton:hover:!pressed{
-background-Color: #E1F4FF;
-Color: #0c2f70;
-}
-OPushButton:disabled {
-background-color: #aaaaaa:
-Color; #ffffff
-}</string>
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="mod3_3">
@@ -651,6 +670,14 @@ Color; #ffffff
        <width>211</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
      <property name="placeholderText">
       <string/>
@@ -665,6 +692,14 @@ Color; #ffffff
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="mod5_3">
      <property name="geometry">
@@ -674,6 +709,14 @@ Color; #ffffff
        <width>211</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="mod6_3">
@@ -686,7 +729,12 @@ Color; #ffffff
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 75 11pt &quot;Arial&quot;;</string>
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
     </widget>
     <widget class="QPushButton" name="modifer_2">
@@ -701,49 +749,21 @@ Color; #ffffff
      <property name="font">
       <font>
        <family>Arial</family>
-       <pointsize>11</pointsize>
-       <weight>50</weight>
+       <pointsize>10</pointsize>
+       <weight>10</weight>
        <italic>false</italic>
        <bold>false</bold>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 11pt &quot;Arial&quot;;
-QPushButton {
-qproperty-icon: url(:/setup.png);
-gproperty-iconSize: 20px 20px;
-text-align: center;
-color: black;
-}
-
-
-OPushButon{
-rgb(0, 0, 255)
- 			border-radius: 15px;
-			border-right:. 1px solid #aaaaaa;
-			border-bottom: 1px solid #aaaaaa;
-}
-
-OPushButton:enabled {
-background-color: white;
-color: blue;
-}
-OPushBution-pressed {
-background-color: white;
-color: blue:
-}
-QPushButton:hover:!pressed{
-background-Color: #white;
-Color: blue;
-}
-OPushButton:disabled {
-background-color: white:
-Color: blue ;
-}
-
-
-
-</string>
+      <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(0, 85, 255);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
      </property>
      <property name="text">
       <string>Modifier</string>
@@ -792,11 +812,14 @@ border-radius : 10px ;</string>
   <widget class="QLabel" name="male_2">
    <property name="geometry">
     <rect>
-     <x>850</x>
+     <x>840</x>
      <y>100</y>
-     <width>61</width>
+     <width>81</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
    </property>
    <property name="text">
     <string>Tri par</string>
@@ -807,18 +830,28 @@ border-radius : 10px ;</string>
     <rect>
      <x>860</x>
      <y>540</y>
-     <width>131</width>
+     <width>141</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Arial</family>
-     <pointsize>11</pointsize>
-     <weight>50</weight>
+     <pointsize>10</pointsize>
+     <weight>10</weight>
      <italic>false</italic>
      <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(0, 85, 255);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
    </property>
    <property name="text">
     <string>verifier captcha</string>
@@ -833,8 +866,18 @@ border-radius : 10px ;</string>
      <height>31</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(255, 0, 0);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
+   </property>
    <property name="text">
-    <string>pdf</string>
+    <string>PDF</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit45">
@@ -845,6 +888,14 @@ border-radius : 10px ;</string>
      <width>361</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
    </property>
    <property name="placeholderText">
     <string>Recherche</string>

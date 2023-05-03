@@ -196,7 +196,7 @@ QSqlQueryModel * Patient::tri_N_Passeport()
  QString Patient::CaptchaGenerator()
 {
     std::srand(std::time(nullptr));
-    QString m_captcha = QString::fromStdString(generateRandomString(6));
+    QString m_captcha = QString::fromStdString(generateRandomString(4));
 
     return m_captcha;
 }

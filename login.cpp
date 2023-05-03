@@ -17,6 +17,7 @@ login::login(QWidget *parent) :
     ui(new Ui::login)
 {
     ui->setupUi(this);
+       ui->male->setText(E.CaptchaGenerator());
 }
 
 login::~login()
@@ -78,16 +79,82 @@ void login::on_signInButton_clicked()
         if (qry.exec("SELECT * FROM AUTHENTIFICATION WHERE LOGIN='"+LOGIN+"'AND MDP='"+MDP+"'")) {
             qry.bindValue(":LOGIN", LOGIN);
             qry.bindValue(":MDP",MDP);
-            if (qry.next()) {
-                QMessageBox::information(this, "Connexion réussie", "Bienvenue, " + LOGIN + " !");
-                ma = new menu(this);
-                ma->show();
-            } else {
-                QMessageBox::critical(this, "Erreur de connexion", "Nom d'utilisateur ou salaire incorrect.");
+            if (qry.next() and (ui->stela->text() == ui->male->text() ))
+
+            {
+
+                            QMessageBox::information(this, "CAPTCHA Verification", "CAPTCHA verified");
+                              ui->male->setText(E.CaptchaGenerator());
+                               ui->stela->clear();
+
+
+
+
+
+                               QMessageBox::information(this, "Connexion réussie", "Bienvenue, " + LOGIN + " !");
+
+                               ma = new menu(this);
+
+                               ma->show();
             }
-        } else {
-            QMessageBox::critical(this, "Erreur", "Erreur lors de l'exécution de la requête.");
+
+
+
+
+            else if ((ui->stela->text() != ui->male->text() ) and qry.next()  )
+            {
+
+
+
+                   QMessageBox::warning(this, "CAPTCHA Verification", "CAPTCHA verification failed");
+
+
+
+                   ui->stela->clear();
+
+                   ui->male->setText(E.CaptchaGenerator());
+
+
+                }
+
+
+
+            else if (!qry.next() and (ui->stela->text() != ui->male->text() ) )
+            {
+                QMessageBox::critical(this, "Erreur de connexion", "Nom d'utilisateur ou salaire incorrect.");
+
+
+                   QMessageBox::warning(this, "CAPTCHA Verification", "CAPTCHA verification failed");
+
+
+
+                   ui->stela->clear();
+
+                   ui->male->setText(E.CaptchaGenerator());
+
+
+                }
+
+
+
+
+            else if (!qry.next() and (ui->stela->text() == ui->male->text() ) )
+            {
+                QMessageBox::critical(this, "Erreur de connexion", "Nom d'utilisateur ou salaire incorrect.");
+
+
+                   ui->male->setText(E.CaptchaGenerator());
+                   ui->stela->clear();
+
+
+                }
+
+
+
+
         }
 
-      }
 
+
+
+        }

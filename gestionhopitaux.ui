@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Gestion Hopitaux</string>
   </property>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
@@ -126,6 +126,14 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -138,6 +146,14 @@
         <width>351</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
       </property>
       <property name="text">
        <string/>
@@ -152,6 +168,14 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -164,6 +188,14 @@
         <width>351</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
       </property>
       <property name="text">
        <string/>
@@ -179,9 +211,14 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: blue;
-color: white;
-border-radius: 15px;</string>
+       <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(0, 85, 255);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
       </property>
       <property name="text">
        <string>Ajouter</string>
@@ -197,7 +234,7 @@ border-radius: 15px;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/image1/ambulance.png);</string>
+       <string notr="true">image: url(:/new/prefix1/logo.png);</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_16">
@@ -224,9 +261,17 @@ border-radius: 15px;</string>
        <rect>
         <x>320</x>
         <y>430</y>
-        <width>341</width>
+        <width>351</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_17">
@@ -247,14 +292,19 @@ border-radius: 15px;</string>
        <rect>
         <x>680</x>
         <y>427</y>
-        <width>171</width>
+        <width>201</width>
         <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: blue;
-color: white;
-border-radius: 15px;</string>
+       <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(0, 85, 255);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
       </property>
       <property name="text">
        <string>Selectionne une image</string>
@@ -285,6 +335,14 @@ border-radius: 15px;</string>
        <height>31</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
     </widget>
     <widget class="QPushButton" name="search_button">
      <property name="geometry">
@@ -296,9 +354,14 @@ border-radius: 15px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: blue;
-color: white;
-border-radius: 15px;</string>
+      <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(0, 85, 255);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
      </property>
      <property name="text">
       <string>Search</string>
@@ -314,9 +377,14 @@ border-radius: 15px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: red;
-color: white;
-border-radius: 15px;</string>
+      <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(255, 0, 0);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
      </property>
      <property name="text">
       <string>PDF</string>
@@ -332,9 +400,14 @@ border-radius: 15px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: blue;
-color: white;
-border-radius: 15px;</string>
+      <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(0, 85, 255);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
      </property>
      <item>
       <property name="text">
@@ -380,7 +453,7 @@ border-radius: 15px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/image1/ambulance.png);</string>
+      <string notr="true">image: url(:/new/prefix1/logo.png);</string>
      </property>
     </widget>
    </widget>
@@ -398,9 +471,14 @@ border-radius: 15px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: red;
-color: white;
-border-radius: 15px;</string>
+      <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(255, 0, 0);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
      </property>
      <property name="text">
       <string>Supprimer</string>
@@ -434,6 +512,14 @@ border-radius: 15px;</string>
        <height>31</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
     </widget>
     <widget class="QTableView" name="tab_hopitaux_3">
      <property name="geometry">
@@ -455,7 +541,7 @@ border-radius: 15px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/image1/ambulance.png);</string>
+      <string notr="true">image: url(:/new/prefix1/logo.png);</string>
      </property>
     </widget>
    </widget>
@@ -549,9 +635,14 @@ border-radius: 15px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: blue;
-color: white;
-border-radius: 15px;</string>
+      <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(0, 85, 255);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
      </property>
      <property name="text">
       <string>Modifier</string>
@@ -565,6 +656,14 @@ border-radius: 15px;</string>
        <width>261</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
      <property name="text">
       <string/>
@@ -582,6 +681,14 @@ border-radius: 15px;</string>
        <height>31</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -595,6 +702,14 @@ border-radius: 15px;</string>
        <height>31</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -607,6 +722,14 @@ border-radius: 15px;</string>
        <width>261</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
      <property name="text">
       <string/>
@@ -622,7 +745,7 @@ border-radius: 15px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/image1/ambulance.png);</string>
+      <string notr="true">image: url(:/new/prefix1/logo.png);</string>
      </property>
     </widget>
     <widget class="QTableView" name="tab_hopitaux_2">
@@ -675,6 +798,14 @@ border-radius: 15px;</string>
        <height>41</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
     </widget>
     <widget class="QPushButton" name="bind">
      <property name="geometry">
@@ -686,9 +817,14 @@ border-radius: 15px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: blue;
-color: white;
-border-radius: 15px;</string>
+      <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(0, 85, 255);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
      </property>
      <property name="text">
       <string>Connecter</string>
@@ -704,9 +840,14 @@ border-radius: 15px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: red;
-color: white;
-border-radius: 15px;</string>
+      <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(255, 0, 0);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
      </property>
      <property name="text">
       <string>Envoyer</string>
@@ -720,6 +861,14 @@ border-radius: 15px;</string>
        <width>561</width>
        <height>91</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+                       border: 2px solid black;
+                       color: black;
+                       padding: 5px;
+                       border-radius:10px;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_11">
@@ -770,7 +919,7 @@ border-radius: 15px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">image: url(:/image1/ambulance.png);</string>
+      <string notr="true">image: url(:/new/prefix1/logo.png);</string>
      </property>
     </widget>
    </widget>
@@ -806,6 +955,16 @@ border-radius: 15px;</string>
        <height>51</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(0, 85, 255);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
+     </property>
      <property name="text">
       <string>ON</string>
      </property>
@@ -818,6 +977,16 @@ border-radius: 15px;</string>
        <width>141</width>
        <height>51</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 16pt &quot;Modern&quot;;
+                 
+background-color: rgb(255, 0, 0);
+                       border: 2px solid black;
+                       color: white;
+                       padding: 5px;
+border-radius:10px;
+font: 87 10pt &quot;Arial&quot;;</string>
      </property>
      <property name="text">
       <string>OFF</string>

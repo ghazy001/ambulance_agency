@@ -6,7 +6,7 @@
 #include <QVBoxLayout>
 #include <QTimer>
 #include <QMainWindow>
-
+#include <patient.h>
 #include <QWidget>
 #include <QDialog>
 #include"menu.h"
@@ -34,6 +34,7 @@ private slots:
 
 private:
     Ui::login *ui;
+    Patient E;
 
     menu *ma;
     QSqlDatabase mydb;
@@ -43,4 +44,3 @@ private:
 };
 
 #endif // LOGIN_H
-

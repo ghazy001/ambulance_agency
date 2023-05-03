@@ -399,7 +399,7 @@ void gestionhopitaux::on_button_pdf_clicked()
                     i = i + 500;
                 }
 
-                QImage image(":/image1/ambulancee.png");
+                QImage image(":/new/prefix1/ambulancee.png");
                                         painter.drawImage(QRect(100, 100, 600, 600), image);
 
                 doc.print(&printer);

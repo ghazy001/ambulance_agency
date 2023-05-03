@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Register</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="logo.qrc">
+    <normaloff>:/new/prefix1/ambulancee.png</normaloff>:/new/prefix1/ambulancee.png</iconset>
   </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
@@ -99,7 +103,7 @@ border-radius: 1px;
           <property name="topMargin">
            <number>15</number>
           </property>
-          <item alignment="Qt::AlignHCenter">
+          <item>
            <widget class="QLabel" name="logo">
             <property name="minimumSize">
              <size>
@@ -114,7 +118,7 @@ border-radius: 1px;
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">border-image: url(:/new/prefix1/icons/logo.png);</string>
+             <string notr="true">border-image: url(:/new/prefix1/logo.png);</string>
             </property>
             <property name="text">
              <string/>
@@ -436,6 +440,8 @@ font: 15pt &quot;Verdana&quot;;</string>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="logo.qrc"/>
+ </resources>
  <connections/>
 </ui>

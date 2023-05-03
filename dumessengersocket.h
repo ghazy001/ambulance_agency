@@ -3,7 +3,6 @@
 
 #include <QTcpSocket>
 
-
 class DuMessengerSocket : public QTcpSocket
 {
     Q_OBJECT

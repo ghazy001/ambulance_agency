@@ -4,6 +4,19 @@
 #include "connection.h"
 #include "menu.h"
 #include "login.h"
+
+#include <QGuiApplication>
+#include <QQuickView>
+#include <QDebug>
+#include "hopitaux.h"
+#include "dumessengerserver.h"
+#include <QWidget>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QFileDialog>
+#include <QHBoxLayout>
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -20,7 +33,7 @@ login l;
 
 
     if(test)
-    {w.show();
+    {l.show();
         QMessageBox::information(nullptr, QObject::tr("database is open"),
                     QObject::tr("connection successful.\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
@@ -32,6 +45,13 @@ login l;
                                 "Click Cancel to exit."), QMessageBox::Cancel);
 
 
+
+    DuMessengerServer Server;
+    if (!Server.startServer(3333)) {
+        qDebug() << "ERROR:" << Server.errorString();
+        return 1;
+    }
+    qDebug() << "Server started...";
 
     return a.exec();
 }
