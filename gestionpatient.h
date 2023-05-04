@@ -105,6 +105,8 @@ private slots:
 
     void on_modifer_2_clicked();
 
+    void on_male_linkActivated(const QString &link);
+
 private:
     Ui::gestionpatient *ui;
     Patient E;

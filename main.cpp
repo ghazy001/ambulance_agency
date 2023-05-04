@@ -20,7 +20,7 @@ login l;
 
 
     if(test)
-    {w.show();
+    {l.show();
         QMessageBox::information(nullptr, QObject::tr("database is open"),
                     QObject::tr("connection successful.\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
